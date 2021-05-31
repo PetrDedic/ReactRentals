@@ -28,52 +28,111 @@ const StyledNavbarMenu = styled.nav`
 `;
 
 const NavbarMenu = (props) => {
-  return (
-    <StyledNavbarMenu>
-      <StyledList>
-        <StyledListItem>
-          <NavLink
-            className="unstyled"
-            tag={Link}
-            to={"/favorite"}
-            activeClassName={"active"}
-          >
-            <i className="fas fa-heart"></i>
-          </NavLink>
-        </StyledListItem>
-        <StyledListItem>
-          <NavLink
-            className="unstyled"
-            tag={Link}
-            to={"/bag"}
-            activeClassName={"active"}
-          >
-            <i className="fas fa-shopping-bag"></i>
-          </NavLink>
-        </StyledListItem>
-        <StyledListItem>
-          <NavLink
-            className="unstyled"
-            tag={Link}
-            to={"/account"}
-            activeClassName={"active"}
-          >
-            <i className="fas fa-user"></i>
-          </NavLink>
-        </StyledListItem>
-        <StyledListItem>
-          <NavLink
-            className="unstyled"
-            tag={Link}
-            to={"/admin"}
-            activeClassName={"active"}
-          >
-            <i className="fas fa-cog"></i>
-          </NavLink>
-        </StyledListItem>
-      </StyledList>
-    </StyledNavbarMenu>
-  );
+  if (
+    window.localStorage.getItem("isAdmin") === "true" &&
+    window.localStorage.getItem("isLogged") === "true"
+  ) {
+    return (
+      <StyledNavbarMenu>
+        <StyledList>
+          <StyledListItem>
+            <NavLink
+              className="unstyled"
+              tag={Link}
+              to={"/favorite"}
+              activeClassName={"active"}
+            >
+              <i className="fas fa-heart"></i>
+            </NavLink>
+          </StyledListItem>
+          <StyledListItem>
+            <NavLink
+              className="unstyled"
+              tag={Link}
+              to={"/bag"}
+              activeClassName={"active"}
+            >
+              <i className="fas fa-shopping-bag"></i>
+            </NavLink>
+          </StyledListItem>
+          <StyledListItem>
+            <NavLink
+              className="unstyled"
+              tag={Link}
+              to={"/account"}
+              activeClassName={"active"}
+            >
+              <i className="fas fa-user"></i>
+            </NavLink>
+          </StyledListItem>
+          <StyledListItem>
+            <NavLink
+              className="unstyled"
+              tag={Link}
+              to={"/admin"}
+              activeClassName={"active"}
+            >
+              <i className="fas fa-cog"></i>
+            </NavLink>
+          </StyledListItem>
+        </StyledList>
+      </StyledNavbarMenu>
+    );
+  } else if (window.localStorage.getItem("isLogged") === "false") {
+    return (
+      <StyledNavbarMenu>
+        <StyledList>
+          <StyledListItem>
+            <NavLink
+              className="unstyled"
+              tag={Link}
+              to={"/account"}
+              activeClassName={"active"}
+            >
+              <i className="fas fa-user"></i>
+            </NavLink>
+          </StyledListItem>
+        </StyledList>
+      </StyledNavbarMenu>
+    );
+  } else {
+    return (
+      <StyledNavbarMenu>
+        <StyledList>
+          <StyledListItem>
+            <NavLink
+              className="unstyled"
+              tag={Link}
+              to={"/favorite"}
+              activeClassName={"active"}
+            >
+              <i className="fas fa-heart"></i>
+            </NavLink>
+          </StyledListItem>
+          <StyledListItem>
+            <NavLink
+              className="unstyled"
+              tag={Link}
+              to={"/bag"}
+              activeClassName={"active"}
+            >
+              <i className="fas fa-shopping-bag"></i>
+            </NavLink>
+          </StyledListItem>
+          <StyledListItem>
+            <NavLink
+              className="unstyled"
+              tag={Link}
+              to={"/account"}
+              activeClassName={"active"}
+            >
+              <i className="fas fa-user"></i>
+            </NavLink>
+          </StyledListItem>
+        </StyledList>
+      </StyledNavbarMenu>
+    );
+  }
 };
 
 export default NavbarMenu;

@@ -1,6 +1,12 @@
 import styled from "styled-components";
-import ContentCard from "./ContentCard";
+import ContentCard from "../ContentCard/ContentCard";
 import ContentMenu from "./ContentMenu";
+import CardText from "../ContentCard/CardText";
+import CardLike from "../ContentCard/CardLike";
+import CardImage from "../ContentCard/CardImage";
+import CardDescription from "../ContentCard/CardDescription";
+import CardActionButton from "../ContentCard/CardActionButton";
+import CardDate from "../ContentCard/CardDate";
 
 const StyledContent = styled.div`
   width: 80%;
@@ -44,11 +50,46 @@ const Content = (props) => {
     <StyledContent>
       <ContentMenu></ContentMenu>
       <StyledContentGrid>
-        <ContentCard></ContentCard>
-        <ContentCard></ContentCard>
-        <ContentCard></ContentCard>
-        <ContentCard></ContentCard>
-        <ContentCard></ContentCard>
+        <ContentCard>
+          <CardLike isLiked="false" />
+          <CardImage />
+          <CardText text="Toto je text" />
+          <CardDescription text="Toto je popisek" />
+          <CardDate dateFrom={"31.5"} dateTo={"2.6"} />
+          <CardActionButton />
+        </ContentCard>
+        <ContentCard>
+          <CardLike isLiked="false" />
+          <CardImage />
+          <CardText text="Toto je text" />
+          <CardDescription text="Toto je popisek" />
+          <CardDate dateFrom={"31.5"} dateTo={"2.6"} />
+          <CardActionButton />
+        </ContentCard>
+        <ContentCard>
+          <CardLike isLiked="false" />
+          <CardImage />
+          <CardText text="Toto je text" />
+          <CardDescription text="Toto je popisek" />
+          <CardDate dateFrom={"31.5"} dateTo={"2.6"} />
+          <CardActionButton />
+        </ContentCard>
+        <ContentCard>
+          <CardLike isLiked="false" />
+          <CardImage />
+          <CardText text="Toto je text" />
+          <CardDescription text="Toto je popisek" />
+          <CardDate dateFrom={"31.5"} dateTo={"2.6"} />
+          <CardActionButton />
+        </ContentCard>
+        <ContentCard>
+          <CardLike isLiked="false" />
+          <CardImage />
+          <CardText text="Toto je text" />
+          <CardDescription text="Toto je popisek" />
+          <CardDate />
+          <CardActionButton />
+        </ContentCard>
       </StyledContentGrid>
     </StyledContent>
   );
