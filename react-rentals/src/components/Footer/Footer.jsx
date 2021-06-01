@@ -43,7 +43,6 @@ const StyledFooter = styled.footer`
       margin-left: auto;
       margin-right: auto;
       padding: 1rem;
-      width: 33%;
     }
   }
 `;
