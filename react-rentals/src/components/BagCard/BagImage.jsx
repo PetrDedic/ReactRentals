@@ -15,7 +15,7 @@ const StyledBagImage = styled.div`
 
 const BagImage = (props) => {
   return (
-    <StyledBagImage>
+    <StyledBagImage className="image-container">
       <img src={testimg} alt="alt" />
     </StyledBagImage>
   );

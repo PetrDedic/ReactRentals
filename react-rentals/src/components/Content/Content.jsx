@@ -14,10 +14,14 @@ import BagCard from "../BagCard/BagCard";
 import BagText from "../BagCard/BagText";
 import BagDate from "../BagCard/BagDate";
 import BagMenu from "../BagCard/BagMenu";
+import Button from "../Button/Button";
+import AccountCard from "../AccountCard/AccountCard";
+import AccountCardDate from "../AccountCard/AccountCardDate";
 
 const StyledContent = styled.div`
   width: 80%;
   margin: 3rem auto 0;
+  min-height: 85vh;
 
   @media (max-width: 900px) {
     width: 90%;
@@ -170,6 +174,23 @@ const Content = (props) => {
               <BagDate></BagDate>
               <BagMenu amount="3"></BagMenu>
             </BagCard>
+            <Button type="green" text="Vypůjčit"></Button>
+          </StyledBagGrid>
+        </Route>
+        <Route path="/account">
+          <StyledBagGrid>
+            <AccountCard id="1">
+              <BagText text="Vypujcka" description="28.5 - 3.7"></BagText>
+              <AccountCardDate isOngoing></AccountCardDate>
+            </AccountCard>
+            <AccountCard id="2">
+              <BagText text="Vypujcka" description="28.5 - 3.7"></BagText>
+              <AccountCardDate isReturned></AccountCardDate>
+            </AccountCard>
+            <AccountCard id="3">
+              <BagText text="Vypujcka" description="28.5 - 3.7"></BagText>
+              <AccountCardDate></AccountCardDate>
+            </AccountCard>
           </StyledBagGrid>
         </Route>
         <Route>
