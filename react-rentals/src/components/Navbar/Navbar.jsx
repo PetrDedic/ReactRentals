@@ -40,7 +40,7 @@ const StyledNavbarContent = styled.nav`
 const Navbar = (props) => {
   return (
     <StyledNavbar>
-      <StyledNavbarContent>
+      <StyledNavbarContent className="navbar">
         <NavLink
           className="unstyled header"
           tag={Link}

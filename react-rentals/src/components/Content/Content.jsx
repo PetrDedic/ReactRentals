@@ -17,6 +17,8 @@ import BagMenu from "../BagCard/BagMenu";
 import Button from "../Button/Button";
 import AccountCard from "../AccountCard/AccountCard";
 import AccountCardDate from "../AccountCard/AccountCardDate";
+import AdminMenu from "../Admin/AdminMenu";
+import AdminCalendar from "../Admin/AdminCalendar";
 
 const StyledContent = styled.div`
   width: 80%;
@@ -33,7 +35,7 @@ const StyledContentGrid = styled.div`
   padding: 2.5%;
   height: auto;
   display: grid;
-  grid-template-columns: repeat(4, auto);
+  grid-template-columns: repeat(4, 1fr);
   -webkit-column-gap: 24px;
   column-gap: 24px;
   row-gap: 32px;
@@ -62,8 +64,23 @@ const StyledBagGrid = styled.div`
   padding: 2.5%;
   height: auto;
   display: grid;
-  grid-template-columns: repeat(1, auto);
+  grid-template-columns: repeat(1, 1fr);
   row-gap: 32px;
+`;
+
+const StyledAdminGrid = styled.div`
+  margin-top: 5%;
+  width: 95%;
+  padding: 2.5%;
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 32px;
+  column-gap: 32px;
+
+  @media (max-width: 1280px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 const Content = (props) => {
@@ -118,7 +135,7 @@ const Content = (props) => {
         <Route path="/favorite">
           <ContentMenu></ContentMenu>
           <StyledContentGrid>
-            <ContentCard>
+            <ContentCard isLeft>
               <CardLike isLiked="true" />
               <CardImage />
               <CardText text="Toto je text 1" />
@@ -126,7 +143,7 @@ const Content = (props) => {
               <CardDate dateFrom={"31.5"} dateTo={"2.6"} />
               <CardActionButton />
             </ContentCard>
-            <ContentCard>
+            <ContentCard isLeft>
               <CardLike isLiked="true" />
               <CardImage />
               <CardText text="Toto je text 3" />
@@ -192,6 +209,19 @@ const Content = (props) => {
               <AccountCardDate></AccountCardDate>
             </AccountCard>
           </StyledBagGrid>
+        </Route>
+        <Route path="/admin">
+          <AdminMenu></AdminMenu>
+          <Switch>
+            <Route exact path="/admin">
+              <StyledAdminGrid>
+                <AdminCalendar></AdminCalendar>
+              </StyledAdminGrid>
+            </Route>
+            <Route exact path="/admin/calendar">
+              <AdminCalendar></AdminCalendar>
+            </Route>
+          </Switch>
         </Route>
         <Route>
           <Error></Error>

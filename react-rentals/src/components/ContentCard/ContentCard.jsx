@@ -12,7 +12,7 @@ const StyledCard = styled.div`
   height: auto;
   display: grid;
   grid-template-rows: auto 0.33fr 0.33fr auto;
-  margin: auto;
+  margin: ${(props) => (props.isLeft ? "0" : "auto")};
 
   &:hover {
     transform: scale(1.05);
@@ -23,7 +23,9 @@ const StyledCard = styled.div`
 const ContentCard = (props) => {
   return (
     <>
-      <StyledCard className="card">{props.children}</StyledCard>
+      <StyledCard isLeft={props.isLeft} className="card">
+        {props.children}
+      </StyledCard>
     </>
   );
 };

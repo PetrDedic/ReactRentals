@@ -1,9 +1,11 @@
 import styled from "styled-components";
+import CategoryButton from "../Button/CategoryButton";
 
 const StyledContentMenu = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  align-items: flex-start;
 
   @media (max-width: 700px) {
     flex-direction: column;
@@ -40,6 +42,13 @@ const StyledSearchBox = styled.div`
     font-size: 1rem;
     padding: 0.5rem;
   }
+
+  @media (max-width: 700px) {
+    width: 95%;
+  }
+  @media (max-width: 400px) {
+    width: 90%;
+  }
 `;
 
 const StyledSearchBoxWithin = styled.div`
@@ -67,20 +76,6 @@ const StyledFilterButton = styled.div`
   }
 `;
 
-const StyledCategory = styled.div`
-  height: 2rem;
-  padding: 1rem 1.5rem;
-  background-color: #fff;
-  border-radius: 2.5rem;
-  -webkit-box-shadow: 0 8px 20px 0px #d1d1d1;
-  box-shadow: 0 8px 20px 0px #d1d1d1;
-  float: left;
-  margin-right: 1rem;
-
-  font-size: 1.35rem;
-  cursor: pointer;
-`;
-
 const StyledDiv = styled.div`
   @media (max-width: 700px) {
     width: 100%;
@@ -102,11 +97,7 @@ const ContentMenu = (props) => {
         </StyledSearchBoxWithin>
       </StyledSearchBox>
       <StyledDiv>
-        <StyledCategory>
-          <details>
-            <summary>Kategorie</summary>
-          </details>
-        </StyledCategory>
+        <CategoryButton></CategoryButton>
         <StyledFilterButton>
           <i className="fas fa-sort-amount-up-alt"></i>
         </StyledFilterButton>

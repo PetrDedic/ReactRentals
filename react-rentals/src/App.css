@@ -36,12 +36,12 @@ body {
   transform: scale(1.25);
 }
 
-.active:hover {
+.navbar .active:hover {
   transform: scale(1.25) !important;
   transition: none !important;
 }
 
-.active:after {
+.navbar .active:after {
   padding-top: 2px;
   display: block;
   content: "";
@@ -50,7 +50,7 @@ body {
   transition: transform 250ms ease-in-out;
 }
 
-a:after {
+.navbar a:after {
   padding-top: 2px;
   display: block;
   content: "";
@@ -61,7 +61,7 @@ a:after {
   width: 65%;
 }
 
-a:hover:after {
+.navbar a:hover:after {
   padding-top: 2px;
   transform: scaleX(1);
   width: 65%;
