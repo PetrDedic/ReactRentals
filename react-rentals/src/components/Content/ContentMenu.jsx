@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Button from "../Button/Button";
 import CategoryButton from "../Button/CategoryButton";
 
 const StyledContentMenu = styled.div`
@@ -61,7 +62,7 @@ const StyledSearchBoxWithin = styled.div`
 
 const StyledFilterButton = styled.div`
   height: 2rem;
-  width: 2rem;
+  min-width: 2rem;
   padding: 1rem;
   background-color: #fff;
   border-radius: 2.5rem;
@@ -86,24 +87,73 @@ const StyledDiv = styled.div`
 `;
 
 const ContentMenu = (props) => {
-  return (
-    <StyledContentMenu>
-      <StyledSearchBox>
-        <StyledSearchBoxWithin>
-          <input id="searchField" type="text" placeholder="Hledat..." />
-          <span>
-            <i className="fas fa-search"></i>
-          </span>
-        </StyledSearchBoxWithin>
-      </StyledSearchBox>
-      <StyledDiv>
-        <CategoryButton></CategoryButton>
-        <StyledFilterButton>
-          <i className="fas fa-sort-amount-up-alt"></i>
-        </StyledFilterButton>
-      </StyledDiv>
-    </StyledContentMenu>
-  );
+  if (props.isAdmin) {
+    return (
+      <>
+        <StyledContentMenu>
+          <StyledSearchBox>
+            <StyledSearchBoxWithin>
+              <input id="searchField" type="text" placeholder="Hledat..." />
+              <span>
+                <i className="fas fa-search"></i>
+              </span>
+            </StyledSearchBoxWithin>
+          </StyledSearchBox>
+          <StyledDiv>
+            <CategoryButton isUnfiltered={props.isUnfiltered}></CategoryButton>
+            <StyledFilterButton>
+              <i className="fas fa-sort-amount-up-alt"></i>
+            </StyledFilterButton>
+          </StyledDiv>
+        </StyledContentMenu>
+        <Button text="Přidat" type="green"></Button>
+      </>
+    );
+  } else if (props.isView) {
+    return (
+      <>
+        <StyledContentMenu>
+          <StyledSearchBox>
+            <StyledSearchBoxWithin>
+              <input id="searchField" type="text" placeholder="Hledat..." />
+              <span>
+                <i className="fas fa-search"></i>
+              </span>
+            </StyledSearchBoxWithin>
+          </StyledSearchBox>
+          <StyledDiv>
+            <CategoryButton
+              isUnfiltered={props.isUnfiltered}
+              isView
+            ></CategoryButton>
+            <StyledFilterButton isUnfiltered={props.isUnfiltered}>
+              <i className="fas fa-sort-amount-up-alt"></i>
+            </StyledFilterButton>
+          </StyledDiv>
+        </StyledContentMenu>
+        <Button text="Přidat" type="green"></Button>
+      </>
+    );
+  } else {
+    return (
+      <StyledContentMenu>
+        <StyledSearchBox>
+          <StyledSearchBoxWithin>
+            <input id="searchField" type="text" placeholder="Hledat..." />
+            <span>
+              <i className="fas fa-search"></i>
+            </span>
+          </StyledSearchBoxWithin>
+        </StyledSearchBox>
+        <StyledDiv>
+          <CategoryButton isUnfiltered={props.isUnfiltered}></CategoryButton>
+          <StyledFilterButton isUnfiltered={props.isUnfiltered}>
+            <i className="fas fa-sort-amount-up-alt"></i>
+          </StyledFilterButton>
+        </StyledDiv>
+      </StyledContentMenu>
+    );
+  }
 };
 
 export default ContentMenu;

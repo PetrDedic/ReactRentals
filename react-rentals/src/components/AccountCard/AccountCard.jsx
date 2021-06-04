@@ -6,16 +6,20 @@ import AccountCardButton from "./AccountCardButton";
 
 const StyledAccountCard = styled.div`
   margin: auto;
-  width: 90%;
+  width: ${(props) => (props.isBordered ? "100%" : "90%")};
   min-height: 8rem;
   display: grid;
   background-color: #fff;
-  border-radius: 1.5rem;
+  border-radius: ${(props) => (props.isBordered ? "none" : "1.5rem")};
   grid-template-columns: repeat(1, 1fr);
   transition: 250ms;
 
-  -webkit-box-shadow: 0px 5px 50px -30px #191919;
-  box-shadow: 0px 5px 50px -30px #191919;
+  -webkit-box-shadow: ${(props) =>
+    props.isBordered ? "none" : "0px 5px 50px -30px #191919"};
+  box-shadow: ${(props) =>
+    props.isBordered ? "none" : "0px 5px 50px -30px #191919"};
+
+  border-bottom: ${(props) => (props.isBordered ? "2px grey solid" : "none")};
 
   @media (max-width: 700px) {
     min-height: 6rem;
@@ -72,10 +76,14 @@ const StyledAccountCardDetail = styled.div`
 const AccountCard = (props) => {
   return (
     <>
-      <StyledAccountCard id={"order-" + props.id}>
+      <StyledAccountCard id={"order-" + props.id} isBordered={props.isBordered}>
         <StyledAccountCardWrapper>
           {props.children}
-          <AccountCardButton id={"order-" + props.id}></AccountCardButton>
+          <AccountCardButton
+            isAdmin={props.isAdmin}
+            id={"order-" + props.id}
+            isSendable={props.isSendable}
+          ></AccountCardButton>
         </StyledAccountCardWrapper>
         <StyledAccountCardDetail id={"detail-order-" + props.id}>
           <BagCard>

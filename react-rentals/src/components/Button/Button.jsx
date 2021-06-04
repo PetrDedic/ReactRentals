@@ -8,12 +8,13 @@ const StyledButton = styled.div`
   color: ${(props) => (props.darkText ? "black" : "white")};
   cursor: pointer;
   transition: 250ms;
-  margin: auto;
+  margin: 1rem auto;
 
   p {
     text-align: center;
     font-size: 1.5rem;
-    margin: 1.45rem;
+    padding: 1.45rem;
+    margin: 0 1rem;
   }
 
   &:hover {

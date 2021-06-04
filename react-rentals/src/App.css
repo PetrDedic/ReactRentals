@@ -70,3 +70,12 @@ body {
 .opener {
   color: green;
 }
+
+.rbc-today {
+  background-color: #00778469 !important;
+  color: #f7f7f7 !important;
+}
+
+.rbc-now {
+  color: #f7f7f7 !important;
+}

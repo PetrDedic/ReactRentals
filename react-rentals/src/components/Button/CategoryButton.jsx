@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 const StyledCategory = styled.div`
+  display: ${(props) => (props.isUnfiltered ? "none" : "unset")};
+
   min-height: 2rem;
   padding: 1rem 1.5rem;
   background-color: #fff;
@@ -55,30 +57,54 @@ const StyledDetails = styled.details`
 `;
 
 const CategoryButton = (props) => {
-  return (
-    <StyledCategory>
-      <StyledDetails>
-        <summary>Kategorie</summary>
-        <ul>
-          <li>
-            <span>●</span>Vše
-          </li>
-          <li>
-            <span>●</span>Těla fotoaparátů
-          </li>
-          <li>
-            <span>●</span>Objektivy
-          </li>
-          <li>
-            <span>●</span>Stativy
-          </li>
-          <li>
-            <span>●</span>Příslušenství
-          </li>
-        </ul>
-      </StyledDetails>
-    </StyledCategory>
-  );
+  if (props.isView) {
+    return (
+      <StyledCategory isUnfiltered={props.isUnfiltered}>
+        <StyledDetails>
+          <summary>Filtrovat</summary>
+          <ul>
+            <li>
+              <span>●</span>Vše
+            </li>
+            <li>
+              <span>●</span>Probíhající
+            </li>
+            <li>
+              <span>●</span>Vrácené
+            </li>
+            <li>
+              <span>●</span>Nevrácené
+            </li>
+          </ul>
+        </StyledDetails>
+      </StyledCategory>
+    );
+  } else {
+    return (
+      <StyledCategory>
+        <StyledDetails>
+          <summary>Filtrovat</summary>
+          <ul>
+            <li>
+              <span>●</span>Vše
+            </li>
+            <li>
+              <span>●</span>Těla fotoaparátů
+            </li>
+            <li>
+              <span>●</span>Objektivy
+            </li>
+            <li>
+              <span>●</span>Stativy
+            </li>
+            <li>
+              <span>●</span>Příslušenství
+            </li>
+          </ul>
+        </StyledDetails>
+      </StyledCategory>
+    );
+  }
 };
 
 export default CategoryButton;

@@ -20,6 +20,7 @@ const StyledAccountCardButton = styled.div`
   i.trash {
     font-size: 2rem;
     cursor: pointer;
+    margin: 0 0.5rem;
 
     @media (max-width: 700px) {
       font-size: 1.75rem;
@@ -30,13 +31,14 @@ const StyledAccountCardButton = styled.div`
     }
   }
 
-  &.isOpened {
+  &.isOpened .chevron {
     transition: 250ms;
     transform: rotate(180deg);
     color: black;
   }
 
-  &:hover {
+  .trash:hover {
+    transition: 250ms;
     color: black;
   }
 `;
@@ -50,17 +52,50 @@ const AccountCardButton = (props) => {
     document.getElementById("detail-" + props.id).classList.toggle("visible");
   };
 
-  return (
-    <StyledAccountCardButton
-      id={props.id}
-      className={(isActive ? "isOpened" : "") + " opener"}
-      onClick={toggleClass}
-    >
-      <div>
-        <i className="fas fa-chevron-down trash"></i>
-      </div>
-    </StyledAccountCardButton>
-  );
+  if (props.isAdmin) {
+    if (props.isSendable) {
+      return (
+        <StyledAccountCardButton
+          id={props.id}
+          className={(isActive ? "isOpened" : "") + " opener"}
+          onClick={toggleClass}
+        >
+          <div>
+            <i className="fas fa-bell trash"></i>
+            <i className="fas fa-edit trash"></i>
+            <i className="fas fa-trash trash"></i>
+            <i className="fas fa-chevron-down trash chevron"></i>
+          </div>
+        </StyledAccountCardButton>
+      );
+    } else {
+      return (
+        <StyledAccountCardButton
+          id={props.id}
+          className={(isActive ? "isOpened" : "") + " opener"}
+          onClick={toggleClass}
+        >
+          <div>
+            <i className="fas fa-edit trash"></i>
+            <i className="fas fa-trash trash"></i>
+            <i className="fas fa-chevron-down trash chevron"></i>
+          </div>
+        </StyledAccountCardButton>
+      );
+    }
+  } else {
+    return (
+      <StyledAccountCardButton
+        id={props.id}
+        className={(isActive ? "isOpened" : "") + " opener"}
+        onClick={toggleClass}
+      >
+        <div>
+          <i className="fas fa-chevron-down trash chevron"></i>
+        </div>
+      </StyledAccountCardButton>
+    );
+  }
 };
 
 export default AccountCardButton;

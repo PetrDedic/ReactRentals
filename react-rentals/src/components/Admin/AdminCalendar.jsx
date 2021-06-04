@@ -7,15 +7,15 @@ require("react-big-calendar/lib/css/react-big-calendar.css");
 const localizer = momentLocalizer(moment);
 
 const StyledAdminCalendar = styled.div`
-  width: 90%;
-  padding: 5%;
+  width: ${(props) => (props.isSmall ? "90%" : "95%")};
+  padding: ${(props) => (props.isSmall ? "5%" : "2.5%")};
   border-radius: 1.5rem;
   -webkit-box-shadow: 0 8px 20px 0px #d1d1d1;
   box-shadow: 0 8px 20px 0px #d1d1d1;
 
   background-color: white;
-  aspect-ratio: 16/9;
   text-align: center;
+  height: 65vh;
 
   img {
     width: 100%;
@@ -23,9 +23,8 @@ const StyledAdminCalendar = styled.div`
     max-height: 100%;
   }
 
-  @media (max-width: 1280px) {
-    aspect-ratio: unset;
-    height: 50vh;
+  @media (max-width: 1400px) {
+    height: 32rem;
   }
 `;
 
@@ -47,11 +46,32 @@ const messages = {
 const AdminCalendar = (props) => {
   return (
     <>
-      <StyledAdminCalendar>
+      <StyledAdminCalendar isSmall={props.isSmall}>
         <Calendar
           messages={messages}
           localizer={localizer}
-          events={[]}
+          events={[
+            {
+              title: "Vypujcka #2215",
+              start: new Date(2021, 5, 4),
+              end: new Date(2021, 5, 7),
+            },
+            {
+              title: "Long Event",
+              start: new Date(2021, 5, 4),
+              end: new Date(2021, 5, 9),
+            },
+            {
+              title: "All Day Event very long title",
+              start: new Date(2021, 5, 4),
+              end: new Date(2021, 5, 7),
+            },
+            {
+              title: "All Day Event very long title",
+              start: new Date(2021, 5, 4),
+              end: new Date(2021, 5, 7),
+            },
+          ]}
           startAccessor="start"
           endAccessor="end"
         />

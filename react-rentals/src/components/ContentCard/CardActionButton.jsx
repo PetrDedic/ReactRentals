@@ -16,13 +16,21 @@ const StyledCardActionButton = styled.div`
 `;
 
 const CardActionButton = (props) => {
-  return (
-    <StyledCardActionButton>
-      <p>
-        Přidat do košíku <i className="fas fa-shopping-bag"></i>
-      </p>
-    </StyledCardActionButton>
-  );
+  if (props.text) {
+    return (
+      <StyledCardActionButton>
+        <p>{props.text}</p>
+      </StyledCardActionButton>
+    );
+  } else {
+    return (
+      <StyledCardActionButton>
+        <p>
+          Přidat do košíku <i className="fas fa-shopping-bag"></i>
+        </p>
+      </StyledCardActionButton>
+    );
+  }
 };
 
 export default CardActionButton;

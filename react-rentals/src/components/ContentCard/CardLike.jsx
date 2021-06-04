@@ -20,11 +20,19 @@ const StyledCardLike = styled.span`
 `;
 
 const CardLike = (props) => {
-  return (
-    <StyledCardLike isLiked={props.isLiked}>
-      <i className="fas fa-heart"></i>
-    </StyledCardLike>
-  );
+  if (props.isEdit) {
+    return (
+      <StyledCardLike>
+        <i className="fas fa-edit"></i>
+      </StyledCardLike>
+    );
+  } else {
+    return (
+      <StyledCardLike isLiked={props.isLiked}>
+        <i className="fas fa-heart"></i>
+      </StyledCardLike>
+    );
+  }
 };
 
 export default CardLike;

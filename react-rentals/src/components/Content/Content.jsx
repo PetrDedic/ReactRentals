@@ -19,6 +19,7 @@ import AccountCard from "../AccountCard/AccountCard";
 import AccountCardDate from "../AccountCard/AccountCardDate";
 import AdminMenu from "../Admin/AdminMenu";
 import AdminCalendar from "../Admin/AdminCalendar";
+import AdminBorrows from "../Admin/AdminBorrows";
 
 const StyledContent = styled.div`
   width: 80%;
@@ -59,9 +60,9 @@ const StyledContentGrid = styled.div`
 `;
 
 const StyledBagGrid = styled.div`
-  margin-top: 5%;
-  width: 95%;
-  padding: 2.5%;
+  width: ${(props) => (props.isSmall ? "100%" : "90%")};
+  margin-top: ${(props) => (props.isSmall ? "0" : "5%")};
+  padding: ${(props) => (props.isSmall ? "0" : "5%")};
   height: auto;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
@@ -69,16 +70,14 @@ const StyledBagGrid = styled.div`
 `;
 
 const StyledAdminGrid = styled.div`
-  margin-top: 5%;
-  width: 95%;
-  padding: 2.5%;
+  width: 100%;
   height: auto;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   row-gap: 32px;
   column-gap: 32px;
 
-  @media (max-width: 1280px) {
+  @media (max-width: 1400px) {
     grid-template-columns: repeat(1, 1fr);
   }
 `;
@@ -210,18 +209,165 @@ const Content = (props) => {
             </AccountCard>
           </StyledBagGrid>
         </Route>
-        <Route path="/admin">
+        <Route exact path="/admin">
           <AdminMenu></AdminMenu>
-          <Switch>
-            <Route exact path="/admin">
-              <StyledAdminGrid>
-                <AdminCalendar></AdminCalendar>
-              </StyledAdminGrid>
-            </Route>
-            <Route exact path="/admin/calendar">
-              <AdminCalendar></AdminCalendar>
-            </Route>
-          </Switch>
+          <StyledAdminGrid>
+            <ContentMenu isView></ContentMenu>
+            <AdminBorrows isSmall>
+              <StyledBagGrid isSmall>
+                <AccountCard isAdmin isBordered isSendable id="1">
+                  <BagText
+                    text="Vypujcka #2155"
+                    description="28.5 - 3.7"
+                  ></BagText>
+                  <AccountCardDate isOngoing></AccountCardDate>
+                </AccountCard>
+                <AccountCard isAdmin isBordered isSendable id="1">
+                  <BagText
+                    text="Vypujcka #2156"
+                    description="28.5 - 3.7"
+                  ></BagText>
+                  <AccountCardDate isOngoing></AccountCardDate>
+                </AccountCard>
+                <AccountCard isAdmin isBordered isSendable id="1">
+                  <BagText
+                    text="Vypujcka #2157"
+                    description="28.5 - 3.7"
+                  ></BagText>
+                  <AccountCardDate isOngoing></AccountCardDate>
+                </AccountCard>
+                <AccountCard isAdmin isBordered isSendable id="1">
+                  <BagText
+                    text="Vypujcka #2158"
+                    description="28.5 - 3.7"
+                  ></BagText>
+                  <AccountCardDate isOngoing></AccountCardDate>
+                </AccountCard>
+              </StyledBagGrid>
+            </AdminBorrows>
+          </StyledAdminGrid>
+        </Route>
+        <Route exact path="/admin/calendar">
+          <AdminMenu></AdminMenu>
+          <StyledAdminGrid>
+            <AdminCalendar></AdminCalendar>
+          </StyledAdminGrid>
+        </Route>
+        <Route exact path="/admin/list">
+          <AdminMenu></AdminMenu>
+          <StyledAdminGrid>
+            <ContentMenu isAdmin></ContentMenu>
+            <StyledContentGrid>
+              <ContentCard>
+                <CardLike isLiked="true" isEdit />
+                <CardImage />
+                <CardText text="Toto je text 1" />
+                <CardDescription text="Toto je popisek" />
+                <CardDate dateFrom={"31.5"} dateTo={"2.6"} />
+                <CardActionButton text="Shlédnout historii" />
+              </ContentCard>
+              <ContentCard>
+                <CardLike isLiked="false" isEdit />
+                <CardImage />
+                <CardText text="Toto je text" />
+                <CardDescription text="Toto je popisek" />
+                <CardDate dateFrom={"31.5"} dateTo={"2.6"} />
+                <CardActionButton text="Shlédnout historii" />
+              </ContentCard>
+              <ContentCard>
+                <CardLike isLiked="true" isEdit />
+                <CardImage />
+                <CardText text="Toto je text 3" />
+                <CardDescription text="Toto je popisek" />
+                <CardDate dateFrom={"31.5"} dateTo={"2.6"} />
+                <CardActionButton text="Shlédnout historii" />
+              </ContentCard>
+              <ContentCard>
+                <CardLike isLiked="false" isEdit />
+                <CardImage />
+                <CardText text="Toto je text" />
+                <CardDescription text="Toto je popisek" />
+                <CardDate dateFrom={"31.5"} dateTo={"2.6"} />
+                <CardActionButton text="Shlédnout historii" />
+              </ContentCard>
+              <ContentCard>
+                <CardLike isLiked="false" isEdit />
+                <CardImage />
+                <CardText text="Toto je text" />
+                <CardDescription text="Toto je popisek" />
+                <CardDate />
+                <CardActionButton text="Shlédnout historii" />
+              </ContentCard>
+            </StyledContentGrid>
+          </StyledAdminGrid>
+        </Route>
+        <Route exact path="/admin/users">
+          <AdminMenu></AdminMenu>
+          <StyledAdminGrid>
+            <ContentMenu isView isFiltered isUnfiltered></ContentMenu>
+            <AdminBorrows isSmall>
+              <StyledBagGrid isSmall>
+                <AccountCard isBordered id="1">
+                  <BagText
+                    text="Petr Dědic"
+                    description="#fjn6546fawd"
+                  ></BagText>
+                </AccountCard>
+                <AccountCard isBordered id="2">
+                  <BagText
+                    text="Michal Stehlík"
+                    description="#fjn6566frad"
+                  ></BagText>
+                </AccountCard>
+                <AccountCard isBordered id="3">
+                  <BagText
+                    text="Tomáš Kazda"
+                    description="#fjn6543fldf"
+                  ></BagText>
+                </AccountCard>
+                <AccountCard isBordered id="4">
+                  <BagText
+                    text="Kateřina Daňková"
+                    description="#fjn6543fvfg"
+                  ></BagText>
+                </AccountCard>
+              </StyledBagGrid>
+            </AdminBorrows>
+          </StyledAdminGrid>
+        </Route>
+        <Route exact path="/admin/manage">
+          <AdminMenu></AdminMenu>
+          <StyledAdminGrid>
+            <ContentMenu isView isFiltered isUnfiltered></ContentMenu>
+            <AdminBorrows isSmall>
+              <StyledBagGrid isSmall>
+                <AccountCard isBordered id="1">
+                  <BagText
+                    text="Petr Dědic"
+                    description="#fjn6546fawd"
+                  ></BagText>
+                </AccountCard>
+                <AccountCard isBordered id="2">
+                  <BagText
+                    text="Michal Stehlík"
+                    description="#fjn6566frad"
+                  ></BagText>
+                </AccountCard>
+                <AccountCard isBordered id="3">
+                  <BagText
+                    text="Tomáš Kazda"
+                    description="#fjn6543fldf"
+                  ></BagText>
+                </AccountCard>
+                <AccountCard isBordered id="4">
+                  <BagText
+                    text="Kateřina Daňková"
+                    description="#fjn6543fvfg"
+                  ></BagText>
+                </AccountCard>
+              </StyledBagGrid>
+            </AdminBorrows>
+          </StyledAdminGrid>
         </Route>
         <Route>
           <Error></Error>
