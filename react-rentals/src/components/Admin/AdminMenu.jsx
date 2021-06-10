@@ -111,12 +111,7 @@ const StyledAdminMenu = styled.div`
 const AdminMenu = (props) => {
   return (
     <StyledAdminMenu>
-      <NavLink
-        activeClassName="active-link"
-        tag={Link}
-        to="/admin"
-        className="selector"
-      >
+      <NavLink tag={Link} to="/admin" className="selector">
         <i className="fas fa-globe-europe"></i>
         <p>Přehled</p>
       </NavLink>

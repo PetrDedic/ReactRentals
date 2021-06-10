@@ -58,27 +58,30 @@ const AccountCardButton = (props) => {
         <StyledAccountCardButton
           id={props.id}
           className={(isActive ? "isOpened" : "") + " opener"}
-          onClick={toggleClass}
         >
           <div>
             <i className="fas fa-bell trash"></i>
             <i className="fas fa-edit trash"></i>
             <i className="fas fa-trash trash"></i>
-            <i className="fas fa-chevron-down trash chevron"></i>
+            <i
+              className="fas fa-chevron-down trash chevron"
+              onClick={toggleClass}
+            ></i>
           </div>
         </StyledAccountCardButton>
       );
     } else {
       return (
         <StyledAccountCardButton
-          id={props.id}
           className={(isActive ? "isOpened" : "") + " opener"}
-          onClick={toggleClass}
         >
           <div>
             <i className="fas fa-edit trash"></i>
             <i className="fas fa-trash trash"></i>
-            <i className="fas fa-chevron-down trash chevron"></i>
+            <i
+              className="fas fa-chevron-down trash chevron"
+              onClick={toggleClass}
+            ></i>
           </div>
         </StyledAccountCardButton>
       );
@@ -86,12 +89,13 @@ const AccountCardButton = (props) => {
   } else {
     return (
       <StyledAccountCardButton
-        id={props.id}
         className={(isActive ? "isOpened" : "") + " opener"}
-        onClick={toggleClass}
       >
         <div>
-          <i className="fas fa-chevron-down trash chevron"></i>
+          <i
+            className="fas fa-chevron-down trash chevron"
+            onClick={toggleClass}
+          ></i>
         </div>
       </StyledAccountCardButton>
     );

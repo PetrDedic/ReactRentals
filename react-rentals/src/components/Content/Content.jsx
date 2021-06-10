@@ -20,6 +20,7 @@ import AccountCardDate from "../AccountCard/AccountCardDate";
 import AdminMenu from "../Admin/AdminMenu";
 import AdminCalendar from "../Admin/AdminCalendar";
 import AdminBorrows from "../Admin/AdminBorrows";
+import Detail from "../Detail/Detail";
 
 const StyledContent = styled.div`
   width: 80%;
@@ -69,7 +70,7 @@ const StyledBagGrid = styled.div`
   row-gap: 32px;
 `;
 
-const StyledAdminGrid = styled.div`
+const StyledMainGrid = styled.div`
   width: 100%;
   height: auto;
   display: grid;
@@ -87,49 +88,51 @@ const Content = (props) => {
     <StyledContent>
       <Switch>
         <Route exact path="/">
-          <ContentMenu></ContentMenu>
-          <StyledContentGrid>
-            <ContentCard>
-              <CardLike isLiked="true" />
-              <CardImage />
-              <CardText text="Toto je text 1" />
-              <CardDescription text="Toto je popisek" />
-              <CardDate dateFrom={"31.5"} dateTo={"2.6"} />
-              <CardActionButton />
-            </ContentCard>
-            <ContentCard>
-              <CardLike isLiked="false" />
-              <CardImage />
-              <CardText text="Toto je text" />
-              <CardDescription text="Toto je popisek" />
-              <CardDate dateFrom={"31.5"} dateTo={"2.6"} />
-              <CardActionButton />
-            </ContentCard>
-            <ContentCard>
-              <CardLike isLiked="true" />
-              <CardImage />
-              <CardText text="Toto je text 3" />
-              <CardDescription text="Toto je popisek" />
-              <CardDate dateFrom={"31.5"} dateTo={"2.6"} />
-              <CardActionButton />
-            </ContentCard>
-            <ContentCard>
-              <CardLike isLiked="false" />
-              <CardImage />
-              <CardText text="Toto je text" />
-              <CardDescription text="Toto je popisek" />
-              <CardDate dateFrom={"31.5"} dateTo={"2.6"} />
-              <CardActionButton />
-            </ContentCard>
-            <ContentCard>
-              <CardLike isLiked="false" />
-              <CardImage />
-              <CardText text="Toto je text" />
-              <CardDescription text="Toto je popisek" />
-              <CardDate />
-              <CardActionButton />
-            </ContentCard>
-          </StyledContentGrid>
+          <StyledMainGrid>
+            <ContentMenu></ContentMenu>
+            <StyledContentGrid>
+              <ContentCard>
+                <CardLike isLiked="true" />
+                <CardImage />
+                <CardText text="Toto je text 1" />
+                <CardDescription text="Toto je popisek" />
+                <CardDate dateFrom={"31.5"} dateTo={"2.6"} />
+                <CardActionButton />
+              </ContentCard>
+              <ContentCard>
+                <CardLike isLiked="false" />
+                <CardImage />
+                <CardText text="Toto je text" />
+                <CardDescription text="Toto je popisek" />
+                <CardDate dateFrom={"31.5"} dateTo={"2.6"} />
+                <CardActionButton />
+              </ContentCard>
+              <ContentCard>
+                <CardLike isLiked="true" />
+                <CardImage />
+                <CardText text="Toto je text 3" />
+                <CardDescription text="Toto je popisek" />
+                <CardDate dateFrom={"31.5"} dateTo={"2.6"} />
+                <CardActionButton />
+              </ContentCard>
+              <ContentCard>
+                <CardLike isLiked="false" />
+                <CardImage />
+                <CardText text="Toto je text" />
+                <CardDescription text="Toto je popisek" />
+                <CardDate dateFrom={"31.5"} dateTo={"2.6"} />
+                <CardActionButton />
+              </ContentCard>
+              <ContentCard>
+                <CardLike isLiked="false" />
+                <CardImage />
+                <CardText text="Toto je text" />
+                <CardDescription text="Toto je popisek" />
+                <CardDate />
+                <CardActionButton />
+              </ContentCard>
+            </StyledContentGrid>
+          </StyledMainGrid>
         </Route>
         <Route path="/favorite">
           <ContentMenu></ContentMenu>
@@ -211,7 +214,7 @@ const Content = (props) => {
         </Route>
         <Route exact path="/admin">
           <AdminMenu></AdminMenu>
-          <StyledAdminGrid>
+          <StyledMainGrid>
             <ContentMenu isView></ContentMenu>
             <AdminBorrows isSmall>
               <StyledBagGrid isSmall>
@@ -222,21 +225,21 @@ const Content = (props) => {
                   ></BagText>
                   <AccountCardDate isOngoing></AccountCardDate>
                 </AccountCard>
-                <AccountCard isAdmin isBordered isSendable id="1">
+                <AccountCard isAdmin isBordered isSendable id="2">
                   <BagText
                     text="Vypujcka #2156"
                     description="28.5 - 3.7"
                   ></BagText>
                   <AccountCardDate isOngoing></AccountCardDate>
                 </AccountCard>
-                <AccountCard isAdmin isBordered isSendable id="1">
+                <AccountCard isAdmin isBordered isSendable id="3">
                   <BagText
                     text="Vypujcka #2157"
                     description="28.5 - 3.7"
                   ></BagText>
                   <AccountCardDate isOngoing></AccountCardDate>
                 </AccountCard>
-                <AccountCard isAdmin isBordered isSendable id="1">
+                <AccountCard isAdmin isBordered isSendable id="4">
                   <BagText
                     text="Vypujcka #2158"
                     description="28.5 - 3.7"
@@ -245,17 +248,17 @@ const Content = (props) => {
                 </AccountCard>
               </StyledBagGrid>
             </AdminBorrows>
-          </StyledAdminGrid>
+          </StyledMainGrid>
         </Route>
         <Route exact path="/admin/calendar">
           <AdminMenu></AdminMenu>
-          <StyledAdminGrid>
+          <StyledMainGrid>
             <AdminCalendar></AdminCalendar>
-          </StyledAdminGrid>
+          </StyledMainGrid>
         </Route>
         <Route exact path="/admin/list">
           <AdminMenu></AdminMenu>
-          <StyledAdminGrid>
+          <StyledMainGrid>
             <ContentMenu isAdmin></ContentMenu>
             <StyledContentGrid>
               <ContentCard>
@@ -299,33 +302,33 @@ const Content = (props) => {
                 <CardActionButton text="Shlédnout historii" />
               </ContentCard>
             </StyledContentGrid>
-          </StyledAdminGrid>
+          </StyledMainGrid>
         </Route>
         <Route exact path="/admin/users">
           <AdminMenu></AdminMenu>
-          <StyledAdminGrid>
+          <StyledMainGrid>
             <ContentMenu isView isFiltered isUnfiltered></ContentMenu>
             <AdminBorrows isSmall>
               <StyledBagGrid isSmall>
-                <AccountCard isBordered id="1">
+                <AccountCard isAdmin isBordered isSendable id="1">
                   <BagText
                     text="Petr Dědic"
                     description="#fjn6546fawd"
                   ></BagText>
                 </AccountCard>
-                <AccountCard isBordered id="2">
+                <AccountCard isAdmin isBordered isSendable id="2">
                   <BagText
                     text="Michal Stehlík"
                     description="#fjn6566frad"
                   ></BagText>
                 </AccountCard>
-                <AccountCard isBordered id="3">
+                <AccountCard isAdmin isBordered isSendable id="3">
                   <BagText
                     text="Tomáš Kazda"
                     description="#fjn6543fldf"
                   ></BagText>
                 </AccountCard>
-                <AccountCard isBordered id="4">
+                <AccountCard isAdmin isBordered isSendable id="4">
                   <BagText
                     text="Kateřina Daňková"
                     description="#fjn6543fvfg"
@@ -333,33 +336,33 @@ const Content = (props) => {
                 </AccountCard>
               </StyledBagGrid>
             </AdminBorrows>
-          </StyledAdminGrid>
+          </StyledMainGrid>
         </Route>
         <Route exact path="/admin/manage">
           <AdminMenu></AdminMenu>
-          <StyledAdminGrid>
+          <StyledMainGrid>
             <ContentMenu isView isFiltered isUnfiltered></ContentMenu>
             <AdminBorrows isSmall>
               <StyledBagGrid isSmall>
-                <AccountCard isBordered id="1">
+                <AccountCard isAdmin isBordered isSendable id="1">
                   <BagText
                     text="Petr Dědic"
                     description="#fjn6546fawd"
                   ></BagText>
                 </AccountCard>
-                <AccountCard isBordered id="2">
+                <AccountCard isAdmin isBordered isSendable id="2">
                   <BagText
                     text="Michal Stehlík"
                     description="#fjn6566frad"
                   ></BagText>
                 </AccountCard>
-                <AccountCard isBordered id="3">
+                <AccountCard isAdmin isBordered isSendable id="3">
                   <BagText
                     text="Tomáš Kazda"
                     description="#fjn6543fldf"
                   ></BagText>
                 </AccountCard>
-                <AccountCard isBordered id="4">
+                <AccountCard isAdmin isBordered isSendable id="4">
                   <BagText
                     text="Kateřina Daňková"
                     description="#fjn6543fvfg"
@@ -367,7 +370,10 @@ const Content = (props) => {
                 </AccountCard>
               </StyledBagGrid>
             </AdminBorrows>
-          </StyledAdminGrid>
+          </StyledMainGrid>
+        </Route>
+        <Route path="/detail">
+          <Detail></Detail>
         </Route>
         <Route>
           <Error></Error>
