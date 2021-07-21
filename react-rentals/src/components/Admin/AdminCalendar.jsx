@@ -15,7 +15,7 @@ const StyledAdminCalendar = styled.div`
 
   background-color: white;
   text-align: center;
-  height: 65vh;
+  height: ${(props) => (props.isHeight ? "40vh !important" : "65vh")};
 
   img {
     width: 100%;
@@ -24,7 +24,7 @@ const StyledAdminCalendar = styled.div`
   }
 
   @media (max-width: 1400px) {
-    height: 32rem;
+    height: ${(props) => (props.isHeight ? "40vh" : "32rem")};
   }
 `;
 
@@ -46,7 +46,7 @@ const messages = {
 const AdminCalendar = (props) => {
   return (
     <>
-      <StyledAdminCalendar isSmall={props.isSmall}>
+      <StyledAdminCalendar isSmall={props.isSmall} isHeight={props.isHeight}>
         <Calendar
           messages={messages}
           localizer={localizer}

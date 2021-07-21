@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const StyledAdminBorrows = styled.div`
+const StyledAdminList = styled.div`
   width: ${(props) => (props.isSmall ? "100%" : "80%")};
   padding: ${(props) => (props.isSmall ? "0 " : "10%")};
   border-radius: 1.5rem;
@@ -9,7 +9,7 @@ const StyledAdminBorrows = styled.div`
 
   background-color: white;
   text-align: center;
-  height: 32rem;
+  height: 75vh;
 
   overflow-y: scroll;
   &::-webkit-scrollbar {
@@ -17,12 +17,12 @@ const StyledAdminBorrows = styled.div`
   }
 `;
 
-const AdminBorrows = (props) => {
+const AdminList = (props) => {
   return (
-    <StyledAdminBorrows isSmall={props.isSmall}>
+    <StyledAdminList isSmall={props.isSmall}>
       {props.children}
-    </StyledAdminBorrows>
+    </StyledAdminList>
   );
 };
 
-export default AdminBorrows;
+export default AdminList;

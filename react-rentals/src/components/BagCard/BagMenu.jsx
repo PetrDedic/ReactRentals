@@ -66,29 +66,11 @@ const StyledBagMenu = styled.div`
 `;
 
 const BagMenu = (props) => {
-  if (props.amount !== "") {
-    return (
-      <StyledBagMenu amount={props.amount}>
-        <div>
-          <i className="fas fa-minus"></i>
-          <p>{props.amount}</p>
-          <i className="fas fa-plus"></i>
-        </div>
-        <i className="fas fa-trash trash"></i>
-      </StyledBagMenu>
-    );
-  } else {
-    return (
-      <StyledBagMenu amount={1}>
-        <div>
-          <i className="fas fa-minus"></i>
-          <p>{1}</p>
-          <i className="fas fa-plus"></i>
-        </div>
-        <i className="fas fa-trash trash"></i>
-      </StyledBagMenu>
-    );
-  }
-};
+  return (
+    <StyledBagMenu amount={props.amount}>
+      <i className="fas fa-trash trash"></i>
+    </StyledBagMenu>
+  );
+}
 
 export default BagMenu;

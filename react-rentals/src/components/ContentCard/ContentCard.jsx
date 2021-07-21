@@ -12,7 +12,7 @@ const StyledCard = styled.div`
   height: auto;
   display: grid;
   grid-template-rows: auto 0.33fr 0.33fr auto;
-  margin: ${(props) => (props.isLeft ? "0" : "auto")};
+  margin: 0 auto auto auto;
 
   &:hover {
     transform: scale(1.05);
