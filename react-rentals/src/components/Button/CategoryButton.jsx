@@ -11,10 +11,18 @@ const StyledCategory = styled.div`
   box-shadow: 0 8px 20px 0px #d1d1d1;
   float: left;
   margin-right: 1rem;
+  margin-left: 1rem;
   transition: 250ms;
+  position: absolute;
+  z-index: 10;
 
   font-size: 1.35rem;
   cursor: pointer;
+
+  @media (max-width: 700px) {
+    padding: 0.75rem;
+    margin-left: 0;
+  }
 `;
 
 const StyledDetails = styled.details`
@@ -22,6 +30,10 @@ const StyledDetails = styled.details`
 
   summary {
     text-align: center;
+
+    @media (max-width: 700px) {
+      padding-top: 3px;
+    }
   }
 
   ul,
@@ -29,6 +41,10 @@ const StyledDetails = styled.details`
     list-style-type: none;
     transition: 250ms;
     padding: 0.25rem 1.25rem;
+
+    @media (max-width: 700px) {
+      padding: 0.25rem 0;
+    }
   }
 
   li {
@@ -40,6 +56,10 @@ const StyledDetails = styled.details`
     overflow: hidden;
     text-overflow: ellipsis;
     width: 80%;
+
+    @media (max-width: 700px) {
+      padding: 0.25rem 0;
+    }
 
     span {
       color: white;

@@ -3,13 +3,14 @@ import Button from "../Button/Button";
 import CategoryButton from "../Button/CategoryButton";
 
 const StyledContentMenu = styled.div`
-  display: flex;
+  
   justify-content: space-between;
   align-items: center;
   align-items: flex-start;
 
   @media (max-width: 700px) {
     flex-direction: column;
+    display: flex;
   }
 `;
 
@@ -21,6 +22,7 @@ const StyledSearchBox = styled.div`
   border-radius: 2.5rem;
   -webkit-box-shadow: 0 8px 20px 0px #d1d1d1;
   box-shadow: 0 8px 20px 0px #d1d1d1;
+  float: left;
 
   #searchField {
     height: 2rem;
@@ -63,12 +65,13 @@ const StyledSearchBoxWithin = styled.div`
 const StyledFilterButton = styled.div`
   height: 2rem;
   min-width: 2rem;
+  max-width: 2rem;
   padding: 1rem;
   background-color: #fff;
   border-radius: 2.5rem;
   -webkit-box-shadow: 0 8px 20px 0px #d1d1d1;
   box-shadow: 0 8px 20px 0px #d1d1d1;
-  float: left;
+  margin-left: auto;
 
   i {
     padding: 0.125rem;
@@ -81,7 +84,7 @@ const StyledDiv = styled.div`
   @media (max-width: 700px) {
     width: 100%;
     display: flex;
-    margin-top 3rem;
+    margin-top: 3rem;
     justify-content: space-between;
   }
 `;

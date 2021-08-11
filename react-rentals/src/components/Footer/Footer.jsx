@@ -11,6 +11,7 @@ const StyledFooter = styled.footer`
   @media (max-width: 700px) {
     height: auto;
     flex-direction: column-reverse;
+    padding-bottom: 12rem;
   }
 
   p {

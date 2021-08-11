@@ -22,7 +22,7 @@ const StyledNavbarMenu = styled.nav`
   width: 25%;
 
   @media (max-width: 700px) {
-    margin-top: 2rem;
+    margin-top: 1rem;
     width: 80%;
   }
 `;

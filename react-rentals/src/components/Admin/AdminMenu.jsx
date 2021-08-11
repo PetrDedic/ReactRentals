@@ -12,7 +12,7 @@ const StyledAdminMenu = styled.div`
   height: auto;
   min-height: 6rem;
   transition: 250ms;
-  z-index: 9999;
+  z-index: 5;
 
   &:hover {
     transition: 250ms;

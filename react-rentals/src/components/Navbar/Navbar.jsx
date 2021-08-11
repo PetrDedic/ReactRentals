@@ -8,11 +8,14 @@ const StyledNavbar = styled.div`
   z-index: 999;
   font-family: "Ubuntu", sans-serif;
   transition: all 0.3s ease;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
 
   h1 {
     font-family: "Playfair Display", serif;
+  }
+
+  @media (max-width: 700px) {
+    position: fixed;
+    bottom: 0;
   }
 `;
 
@@ -34,25 +37,58 @@ const StyledNavbarContent = styled.nav`
   @media (max-width: 700px) {
     width: 80%;
     flex-direction: column;
+
+    background-color: #007784;
+    color: white;
+
+    margin-bottom: 0.5rem;
+
+    *::after {
+      color: white;
+      border-bottom: white solid 2px !important;
+    }
   }
 `;
 
 const Navbar = (props) => {
-  return (
-    <StyledNavbar>
-      <StyledNavbarContent className="navbar">
-        <NavLink
-          className="unstyled header"
-          tag={Link}
-          to={"/"}
-          activeClassName={""}
-        >
-          <h1>Rentals</h1>
-        </NavLink>
-        <NavbarMenu></NavbarMenu>
-      </StyledNavbarContent>
-    </StyledNavbar>
-  );
+
+  var w = window.innerWidth;
+
+  if(w < 700) {
+    return (
+      <StyledNavbar className="small-nav">
+        <StyledNavbarContent className="navbar">
+          <NavLink
+            className="unstyled header"
+            tag={Link}
+            to={"/"}
+            activeClassName={""}
+          >
+            <h1>Rentals</h1>
+          </NavLink>
+          <NavbarMenu></NavbarMenu>
+        </StyledNavbarContent>
+      </StyledNavbar>
+    );
+  } else {
+      return (
+        <StyledNavbar>
+          <StyledNavbarContent className="navbar">
+            <NavLink
+              className="unstyled header"
+              tag={Link}
+              to={"/"}
+              activeClassName={""}
+            >
+              <h1>Rentals</h1>
+            </NavLink>
+            <NavbarMenu></NavbarMenu>
+          </StyledNavbarContent>
+        </StyledNavbar>
+      );
+    }
+
+  
 };
 
 export default Navbar;
