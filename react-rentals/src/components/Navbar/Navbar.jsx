@@ -58,14 +58,6 @@ const Navbar = (props) => {
     return (
       <StyledNavbar className="small-nav">
         <StyledNavbarContent className="navbar">
-          <NavLink
-            className="unstyled header"
-            tag={Link}
-            to={"/"}
-            activeClassName={""}
-          >
-            <h1>Rentals</h1>
-          </NavLink>
           <NavbarMenu></NavbarMenu>
         </StyledNavbarContent>
       </StyledNavbar>

@@ -57,7 +57,7 @@ const StyledError = styled.div`
   }
 `;
 
-const error = (props) => {
+const Error = (props) => {
   return (
     <StyledError>
       <h2>Whoops</h2>
@@ -69,4 +69,4 @@ const error = (props) => {
   );
 };
 
-export default error;
+export default Error;

@@ -5,13 +5,13 @@ const StyledFooter = styled.footer`
   height: 5rem;
   display: flex;
   justify-content: space-between;
-  margin-top: 10rem;
+  margin-top: 8rem;
   background-color: #007784;
 
   @media (max-width: 700px) {
     height: auto;
     flex-direction: column-reverse;
-    padding-bottom: 12rem;
+    background-color: unset;
   }
 
   p {
@@ -46,15 +46,32 @@ const StyledFooter = styled.footer`
       padding: 1rem;
     }
   }
+
+  .dummy-footer {
+    width: 100%;
+    height: 1rem;
+    margin-top: 0;
+    padding-bottom: 0 !important;
+  }
 `;
 
 const Footer = (props) => {
-  return (
-    <StyledFooter>
-      <p>© Aplikace pro správu vybavení školního ateliéru</p>
-      <button>Odhlásit se</button>
-    </StyledFooter>
-  );
+  var w = window.innerWidth;
+
+  if(w < 700) {
+    return (
+      <StyledFooter>
+        <div className="dummy-footer"></div>
+      </StyledFooter>
+    );
+  } else {
+    return (
+      <StyledFooter>
+        <p>© Aplikace pro správu vybavení školního ateliéru</p>
+        <button>Odhlásit se</button>
+      </StyledFooter>
+    );
+  }
 };
 
 export default Footer;

@@ -14,7 +14,7 @@ const StyledCategory = styled.div`
   margin-left: 1rem;
   transition: 250ms;
   position: absolute;
-  z-index: 10;
+  z-index: 4;
 
   font-size: 1.35rem;
   cursor: pointer;
@@ -30,10 +30,6 @@ const StyledDetails = styled.details`
 
   summary {
     text-align: center;
-
-    @media (max-width: 700px) {
-      padding-top: 3px;
-    }
   }
 
   ul,

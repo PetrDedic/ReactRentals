@@ -27,6 +27,7 @@ import AdminListItemUser from "../Admin/AdminListItemUser";
 import Detail from "../Detail/Detail";
 import ToolTip from "../ToolTip/ToolTip";
 import BehaviorIndex from "../BehaviorIndex/BehaviorIndex"
+import CardInfo from "../ContentCard/CardInfo";
 
 const StyledContent = styled.div`
   width: 80%;
@@ -35,6 +36,9 @@ const StyledContent = styled.div`
 
   @media (max-width: 900px) {
     width: 90%;
+  }
+  @media (max-width: 700px) {
+    min-height: unset;
   }
 `;
 const StyledContentGrid = styled.div`
@@ -47,6 +51,10 @@ const StyledContentGrid = styled.div`
   -webkit-column-gap: 24px;
   column-gap: 24px;
   row-gap: 32px;
+
+  &.liked-grid {
+    padding-top: 72px;
+  }
 
   @media (max-width: 1580px) {
     grid-template-columns: repeat(3, 1fr);
@@ -63,6 +71,9 @@ const StyledContentGrid = styled.div`
 
   @media (max-width: 700px) {
     grid-template-columns: repeat(1, 1fr);
+    &.liked-grid {
+    padding-top: 32px;
+  }
   }
 `;
 
@@ -106,6 +117,7 @@ const Content = (props) => {
                 <CardActionButton />
               </ContentCard>
               <ContentCard>
+                <CardInfo text="Je rozbitá :)"></CardInfo>
                 <CardLike isLiked="false" />
                 <CardImage />
                 <CardText text="Toto je text" />
@@ -142,7 +154,7 @@ const Content = (props) => {
         </Route>
         <Route path="/favorite">
           <ContentMenu></ContentMenu>
-          <StyledContentGrid>
+          <StyledContentGrid className="liked-grid">
             <ContentCard isLeft>
               <CardLike isLiked="true" />
               <CardImage />
