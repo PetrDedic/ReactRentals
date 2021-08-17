@@ -44,7 +44,7 @@ const StyledAccountCardDetail = styled.div`
 
   &.visible {
     height: auto;
-    padding-bottom 2rem;  
+    padding-bottom: 2rem;
 
     div {
       box-shadow: none;

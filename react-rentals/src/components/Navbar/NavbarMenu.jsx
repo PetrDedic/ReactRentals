@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { WavyLink } from "react-wavy-transitions";
 
 const StyledList = styled.ul`
   display: flex;
@@ -28,10 +29,9 @@ const StyledNavbarMenu = styled.nav`
 `;
 
 const NavbarMenu = (props) => {
-
   var w = window.innerWidth;
 
-  if(w < 700) {
+  if (w < 700) {
     if (
       window.localStorage.getItem("isAdmin") === "true" &&
       window.localStorage.getItem("isLogged") === "true"
@@ -40,54 +40,59 @@ const NavbarMenu = (props) => {
         <StyledNavbarMenu>
           <StyledList>
             <StyledListItem>
-              <NavLink
+              <WavyLink
+                waveColor="#007784"
                 className="unstyled header"
                 tag={Link}
                 to={"/"}
                 activeClassName={""}
               >
                 <i className="fas fa-home"></i>
-              </NavLink>
+              </WavyLink>
             </StyledListItem>
             <StyledListItem>
-              <NavLink
+              <WavyLink
+                waveColor="#007784"
                 className="unstyled"
                 tag={Link}
                 to={"/favorite"}
                 activeClassName={"active"}
               >
                 <i className="fas fa-heart"></i>
-              </NavLink>
+              </WavyLink>
             </StyledListItem>
             <StyledListItem>
-              <NavLink
+              <WavyLink
+                waveColor="#007784"
                 className="unstyled"
                 tag={Link}
                 to={"/bag"}
                 activeClassName={"active"}
               >
                 <i className="fas fa-shopping-bag"></i>
-              </NavLink>
+              </WavyLink>
             </StyledListItem>
             <StyledListItem>
-              <NavLink
+              <WavyLink
+                waveColor="#007784"
                 className="unstyled"
                 tag={Link}
                 to={"/account"}
                 activeClassName={"active"}
               >
                 <i className="fas fa-user"></i>
-              </NavLink>
+              </WavyLink>
             </StyledListItem>
             <StyledListItem>
-              <NavLink
+              <WavyLink
+                waveColor="#007784"
                 className="unstyled"
                 tag={Link}
                 to={"/admin"}
                 activeClassName={"active"}
               >
                 <i className="fas fa-cog"></i>
-              </NavLink>
+              </WavyLink>
             </StyledListItem>
           </StyledList>
         </StyledNavbarMenu>
@@ -97,24 +102,26 @@ const NavbarMenu = (props) => {
         <StyledNavbarMenu>
           <StyledList>
             <StyledListItem>
-              <NavLink
+              <WavyLink
+                waveColor="#007784"
                 className="unstyled header"
                 tag={Link}
                 to={"/"}
                 activeClassName={""}
               >
                 <i className="fas fa-home"></i>
-              </NavLink>
+              </WavyLink>
             </StyledListItem>
             <StyledListItem>
-              <NavLink
+              <WavyLink
+                waveColor="#007784"
                 className="unstyled"
                 tag={Link}
                 to={"/account"}
                 activeClassName={"active"}
               >
                 <i className="fas fa-user"></i>
-              </NavLink>
+              </WavyLink>
             </StyledListItem>
           </StyledList>
         </StyledNavbarMenu>
@@ -124,44 +131,48 @@ const NavbarMenu = (props) => {
         <StyledNavbarMenu>
           <StyledList>
             <StyledListItem>
-              <NavLink
+              <WavyLink
+                waveColor="#007784"
                 className="unstyled header"
                 tag={Link}
                 to={"/"}
                 activeClassName={""}
               >
                 <i className="fas fa-home"></i>
-              </NavLink>
+              </WavyLink>
             </StyledListItem>
             <StyledListItem>
-              <NavLink
+              <WavyLink
+                waveColor="#007784"
                 className="unstyled"
                 tag={Link}
                 to={"/favorite"}
                 activeClassName={"active"}
               >
                 <i className="fas fa-heart"></i>
-              </NavLink>
+              </WavyLink>
             </StyledListItem>
             <StyledListItem>
-              <NavLink
+              <WavyLink
+                waveColor="#007784"
                 className="unstyled"
                 tag={Link}
                 to={"/bag"}
                 activeClassName={"active"}
               >
                 <i className="fas fa-shopping-bag"></i>
-              </NavLink>
+              </WavyLink>
             </StyledListItem>
             <StyledListItem>
-              <NavLink
+              <WavyLink
+                waveColor="#007784"
                 className="unstyled"
                 tag={Link}
                 to={"/account"}
                 activeClassName={"active"}
               >
                 <i className="fas fa-user"></i>
-              </NavLink>
+              </WavyLink>
             </StyledListItem>
           </StyledList>
         </StyledNavbarMenu>
@@ -176,44 +187,48 @@ const NavbarMenu = (props) => {
         <StyledNavbarMenu>
           <StyledList>
             <StyledListItem>
-              <NavLink
+              <WavyLink
+                waveColor="#007784"
                 className="unstyled"
                 tag={Link}
                 to={"/favorite"}
                 activeClassName={"active"}
               >
                 <i className="fas fa-heart"></i>
-              </NavLink>
+              </WavyLink>
             </StyledListItem>
             <StyledListItem>
-              <NavLink
+              <WavyLink
+                waveColor="#007784"
                 className="unstyled"
                 tag={Link}
                 to={"/bag"}
                 activeClassName={"active"}
               >
                 <i className="fas fa-shopping-bag"></i>
-              </NavLink>
+              </WavyLink>
             </StyledListItem>
             <StyledListItem>
-              <NavLink
+              <WavyLink
+                waveColor="#007784"
                 className="unstyled"
                 tag={Link}
                 to={"/account"}
                 activeClassName={"active"}
               >
                 <i className="fas fa-user"></i>
-              </NavLink>
+              </WavyLink>
             </StyledListItem>
             <StyledListItem>
-              <NavLink
+              <WavyLink
+                waveColor="#007784"
                 className="unstyled"
                 tag={Link}
                 to={"/admin"}
                 activeClassName={"active"}
               >
                 <i className="fas fa-cog"></i>
-              </NavLink>
+              </WavyLink>
             </StyledListItem>
           </StyledList>
         </StyledNavbarMenu>
@@ -223,14 +238,15 @@ const NavbarMenu = (props) => {
         <StyledNavbarMenu>
           <StyledList>
             <StyledListItem>
-              <NavLink
+              <WavyLink
+                waveColor="#007784"
                 className="unstyled"
                 tag={Link}
                 to={"/account"}
                 activeClassName={"active"}
               >
                 <i className="fas fa-user"></i>
-              </NavLink>
+              </WavyLink>
             </StyledListItem>
           </StyledList>
         </StyledNavbarMenu>
@@ -240,41 +256,43 @@ const NavbarMenu = (props) => {
         <StyledNavbarMenu>
           <StyledList>
             <StyledListItem>
-              <NavLink
+              <WavyLink
+                waveColor="#007784"
                 className="unstyled"
                 tag={Link}
                 to={"/favorite"}
                 activeClassName={"active"}
               >
                 <i className="fas fa-heart"></i>
-              </NavLink>
+              </WavyLink>
             </StyledListItem>
             <StyledListItem>
-              <NavLink
+              <WavyLink
+                waveColor="#007784"
                 className="unstyled"
                 tag={Link}
                 to={"/bag"}
                 activeClassName={"active"}
               >
                 <i className="fas fa-shopping-bag"></i>
-              </NavLink>
+              </WavyLink>
             </StyledListItem>
             <StyledListItem>
-              <NavLink
+              <WavyLink
+                waveColor="#007784"
                 className="unstyled"
                 tag={Link}
                 to={"/account"}
                 activeClassName={"active"}
               >
                 <i className="fas fa-user"></i>
-              </NavLink>
+              </WavyLink>
             </StyledListItem>
           </StyledList>
         </StyledNavbarMenu>
       );
+    }
   }
-  }
-  
 };
 
 export default NavbarMenu;

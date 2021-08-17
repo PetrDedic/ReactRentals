@@ -9,7 +9,7 @@ const StyledAdminList = styled.div`
 
   background-color: white;
   text-align: center;
-  height: 75vh;
+  height: auto;
 
   overflow-y: scroll;
   &::-webkit-scrollbar {
@@ -19,9 +19,7 @@ const StyledAdminList = styled.div`
 
 const AdminList = (props) => {
   return (
-    <StyledAdminList isSmall={props.isSmall}>
-      {props.children}
-    </StyledAdminList>
+    <StyledAdminList isSmall={props.isSmall}>{props.children}</StyledAdminList>
   );
 };
 

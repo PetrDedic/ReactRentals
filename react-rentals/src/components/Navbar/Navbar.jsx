@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import NavbarMenu from "./NavbarMenu";
+import { WavyLink } from "react-wavy-transitions";
 
 const StyledNavbar = styled.div`
   display: flex;
@@ -51,10 +52,9 @@ const StyledNavbarContent = styled.nav`
 `;
 
 const Navbar = (props) => {
-
   var w = window.innerWidth;
 
-  if(w < 700) {
+  if (w < 700) {
     return (
       <StyledNavbar className="small-nav">
         <StyledNavbarContent className="navbar">
@@ -63,24 +63,23 @@ const Navbar = (props) => {
       </StyledNavbar>
     );
   } else {
-      return (
-        <StyledNavbar>
-          <StyledNavbarContent className="navbar">
-            <NavLink
-              className="unstyled header"
-              tag={Link}
-              to={"/"}
-              activeClassName={""}
-            >
-              <h1>Rentals</h1>
-            </NavLink>
-            <NavbarMenu></NavbarMenu>
-          </StyledNavbarContent>
-        </StyledNavbar>
-      );
-    }
-
-  
+    return (
+      <StyledNavbar>
+        <StyledNavbarContent className="navbar">
+          <WavyLink
+            waveColor="#007784"
+            className="unstyled header"
+            tag={Link}
+            to={"/"}
+            activeClassName={""}
+          >
+            <h1>Rentals</h1>
+          </WavyLink>
+          <NavbarMenu></NavbarMenu>
+        </StyledNavbarContent>
+      </StyledNavbar>
+    );
+  }
 };
 
 export default Navbar;

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import testimg from "../media/test.jpg";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { WavyLink } from "react-wavy-transitions";
 
 const StyledCardImage = styled.div`
   aspect-ratio: 1/1;
@@ -17,14 +18,15 @@ const CardImage = (props) => {
   //props -> path to image
   return (
     <StyledCardImage>
-      <NavLink
-          className="unstyled header"
-          tag={Link}
-          to={"/detail"}
-          activeClassName={""}
-        >
-          <img src={testimg} alt="" />
-        </NavLink>
+      <WavyLink
+        waveColor="#007784"
+        className="unstyled header"
+        tag={Link}
+        to={"/detail"}
+        activeClassName={""}
+      >
+        <img src={testimg} alt="" />
+      </WavyLink>
     </StyledCardImage>
   );
 };
