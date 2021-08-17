@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import SignButton from "./SignButton";
 
 const StyledFooter = styled.footer`
   width: 100%;
@@ -57,6 +58,7 @@ const StyledFooter = styled.footer`
 
 const Footer = (props) => {
   var w = window.innerWidth;
+  console.log(w);
 
   if(w < 700) {
     return (
@@ -68,7 +70,7 @@ const Footer = (props) => {
     return (
       <StyledFooter>
         <p>© Aplikace pro správu vybavení školního ateliéru</p>
-        <button>Odhlásit se</button>
+        <SignButton></SignButton>
       </StyledFooter>
     );
   }

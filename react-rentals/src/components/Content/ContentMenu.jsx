@@ -11,6 +11,10 @@ const StyledContentMenu = styled.div`
   @media (max-width: 700px) {
     flex-direction: column;
     display: flex;
+
+    &.marginTop {
+      margin-top: 2rem;
+    }
   }
 `;
 
@@ -93,7 +97,7 @@ const ContentMenu = (props) => {
   if (props.isAdmin) {
     return (
       <>
-        <StyledContentMenu>
+        <StyledContentMenu className="marginTop">
           <StyledSearchBox>
             <StyledSearchBoxWithin>
               <input id="searchField" type="text" placeholder="Hledat..." />
@@ -115,7 +119,7 @@ const ContentMenu = (props) => {
   } else if (props.isView) {
     return (
       <>
-        <StyledContentMenu>
+        <StyledContentMenu className="marginTop">
           <StyledSearchBox>
             <StyledSearchBoxWithin>
               <input id="searchField" type="text" placeholder="Hledat..." />

@@ -15,12 +15,13 @@ const StyledCategory = styled.div`
   transition: 250ms;
   position: absolute;
   z-index: 4;
+  width: 9rem;
 
   font-size: 1.35rem;
   cursor: pointer;
 
   @media (max-width: 700px) {
-    padding: 0.75rem;
+    padding: 1rem;
     margin-left: 0;
   }
 `;
@@ -52,7 +53,7 @@ const StyledDetails = styled.details`
   li {
     list-style-type: none;
     transition: 250ms;
-    padding: 0.25rem 1.25rem;
+    padding: 0.25rem 0.5rem;
 
     @media (max-width: 700px) {
       padding: 0.25rem 0;
@@ -61,7 +62,7 @@ const StyledDetails = styled.details`
 
   li {
     border-radius: 2.5rem;
-    padding: 0.25rem 1.5rem;
+    padding: 0.25rem 0.5rem;
     margin: 0.5rem 0;
     transition: 250ms;
     white-space: nowrap;

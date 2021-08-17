@@ -28,6 +28,7 @@ import Detail from "../Detail/Detail";
 import ToolTip from "../ToolTip/ToolTip";
 import BehaviorIndex from "../BehaviorIndex/BehaviorIndex"
 import CardInfo from "../ContentCard/CardInfo";
+import SignButton from "../Footer/SignButton";
 
 const StyledContent = styled.div`
   width: 80%;
@@ -231,6 +232,7 @@ const Content = (props) => {
               <BagText text="Vypujcka" description="28.5 - 3.7"></BagText>
               <AccountCardDate></AccountCardDate>
             </AccountCard>
+            <SignButton />
           </StyledBagGrid>
         </Route>
         <Route exact path="/admin">
@@ -246,7 +248,9 @@ const Content = (props) => {
               <AdminListItem>
                 <AdminListItemName name="Výpůjčka #1234" note="Toto je nějaká poznámka k výpůjčce"></AdminListItemName>
                 <AdminListItemUser name="Dědic Petr"></AdminListItemUser>
-                <AdminListItemDate from="21.6 2021" to="30.7 2021" stateType="returned" state="Vráceno"></AdminListItemDate>
+                <ToolTip toolTipText="Přijmul Michal Stehlík">
+                  <AdminListItemDate from="21.6 2021" to="30.7 2021" stateType="returned" state="Vráceno" className="abbr"></AdminListItemDate>
+                </ToolTip>
               </AdminListItem>
               <AdminListItem>
                 <AdminListItemName name="Výpůjčka #1234" note="Toto je nějaká poznámka k výpůjčce"></AdminListItemName>

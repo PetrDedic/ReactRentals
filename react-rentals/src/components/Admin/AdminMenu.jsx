@@ -14,6 +14,7 @@ const StyledAdminMenu = styled.div`
   min-height: 6rem;
   transition: 250ms;
   z-index: 5;
+  text-align: left;
 
   &:hover {
     transition: 250ms;
@@ -24,8 +25,34 @@ const StyledAdminMenu = styled.div`
     }
   }
 
+  .react-wavy-link--active {
+    color: black !important;
+  }
+
   @media (max-width: 700px) {
-    width: 4rem;
+    width: 90%;
+    margin: 0 5%;
+    min-height: unset;
+
+    border-radius: 0 0 1.5rem 1.5rem;
+
+    top: 0;
+    left: 0;
+
+    flex-direction: row;
+    transform: unset;
+
+    .selector {
+      width: 20% !important;
+    }
+
+    &:hover {
+      button p {
+        display: none !important;
+      }
+
+      width: 90%;
+    }
   }
 
   background-color: white;

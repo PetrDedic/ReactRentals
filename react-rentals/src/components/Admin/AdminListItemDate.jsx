@@ -14,6 +14,11 @@ const StyledAdminListItemDate = styled.div`
     display: grid;
     justify-items: center;
     align-items: center;
+    text-align: center;
+
+    &.abbr {
+      margin: auto;
+    }
 
     &.returned {
         font-weight: 600;
@@ -41,7 +46,7 @@ const AdminListItemDate = (props) => {
   return (
     <StyledAdminListItemDate>
         <p>{props.from} - {props.to}</p>
-        <p className={props.stateType}>{props.state}</p>
+        <p className={props.stateType + " " + props.className}>{props.state}</p>
     </StyledAdminListItemDate>
   );
 };
