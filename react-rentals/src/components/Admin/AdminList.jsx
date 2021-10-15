@@ -15,6 +15,10 @@ const StyledAdminList = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
+
+  & .item-list:nth-child(even) {
+    background-color: #f7f7f7;
+  }
 `;
 
 const AdminList = (props) => {

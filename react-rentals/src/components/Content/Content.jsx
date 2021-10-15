@@ -26,9 +26,11 @@ import AdminListItemDate from "../Admin/AdminListItemDate";
 import AdminListItemUser from "../Admin/AdminListItemUser";
 import Detail from "../Detail/Detail";
 import ToolTip from "../ToolTip/ToolTip";
-import BehaviorIndex from "../BehaviorIndex/BehaviorIndex"
+import BehaviorIndex from "../BehaviorIndex/BehaviorIndex";
 import CardInfo from "../ContentCard/CardInfo";
 import SignButton from "../Footer/SignButton";
+
+import { useAppContext } from "../../providers/ApplicationProvider";
 
 const StyledContent = styled.div`
   width: 80%;
@@ -73,8 +75,8 @@ const StyledContentGrid = styled.div`
   @media (max-width: 700px) {
     grid-template-columns: repeat(1, 1fr);
     &.liked-grid {
-    padding-top: 32px;
-  }
+      padding-top: 32px;
+    }
   }
 `;
 
@@ -102,6 +104,8 @@ const StyledMainGrid = styled.div`
 `;
 
 const Content = (props) => {
+  const [{ profile }] = useAppContext();
+
   return (
     <StyledContent>
       <Switch>
@@ -216,8 +220,9 @@ const Content = (props) => {
           </StyledBagGrid>
         </Route>
         <Route path="/account">
+          <p>{profile ? profile.name : "Neznámý uživatel"}</p>
           <ToolTip toolTipText="Důvěra: 60%">
-            <BehaviorIndex value="60" ></BehaviorIndex>
+            <BehaviorIndex value="60"></BehaviorIndex>
           </ToolTip>
           <StyledBagGrid>
             <AccountCard id="1">
@@ -241,66 +246,163 @@ const Content = (props) => {
             <ContentMenu isView></ContentMenu>
             <AdminList isSmall>
               <AdminListItem>
-                <AdminListItemName name="Výpůjčka #1234" note="Toto je nějaká poznámka k výpůjčce"></AdminListItemName>
+                <AdminListItemName
+                  name="Výpůjčka #1234"
+                  note="Toto je nějaká poznámka k výpůjčce"
+                ></AdminListItemName>
                 <AdminListItemUser name="Dědic Petr"></AdminListItemUser>
-                <AdminListItemDate from="21.6 2021" to="30.7 2021" stateType="soon" state="Proběhne"></AdminListItemDate>
+                <AdminListItemDate
+                  from="21.6 2021"
+                  to="30.7 2021"
+                  stateType="soon"
+                  state="Proběhne"
+                ></AdminListItemDate>
               </AdminListItem>
               <AdminListItem>
-                <AdminListItemName name="Výpůjčka #1234" note="Toto je nějaká poznámka k výpůjčce"></AdminListItemName>
+                <AdminListItemName
+                  name="Výpůjčka #1234"
+                  note="Toto je nějaká poznámka k výpůjčce"
+                ></AdminListItemName>
                 <AdminListItemUser name="Dědic Petr"></AdminListItemUser>
                 <ToolTip toolTipText="Přijmul Michal Stehlík">
-                  <AdminListItemDate from="21.6 2021" to="30.7 2021" stateType="returned" state="Vráceno" className="abbr"></AdminListItemDate>
+                  <AdminListItemDate
+                    from="21.6 2021"
+                    to="30.7 2021"
+                    stateType="returned"
+                    state="Vráceno"
+                    className="abbr"
+                  ></AdminListItemDate>
                 </ToolTip>
               </AdminListItem>
               <AdminListItem>
-                <AdminListItemName name="Výpůjčka #1234" note="Toto je nějaká poznámka k výpůjčce"></AdminListItemName>
+                <AdminListItemName
+                  name="Výpůjčka #1234"
+                  note="Toto je nějaká poznámka k výpůjčce"
+                ></AdminListItemName>
                 <AdminListItemUser name="Dědic Petr"></AdminListItemUser>
-                <AdminListItemDate from="21.6 2021" to="30.7 2021" stateType="returned" state="Vráceno"></AdminListItemDate>
+                <AdminListItemDate
+                  from="21.6 2021"
+                  to="30.7 2021"
+                  stateType="returned"
+                  state="Vráceno"
+                ></AdminListItemDate>
               </AdminListItem>
               <AdminListItem>
-                <AdminListItemName name="Výpůjčka #1234" note="Toto je nějaká poznámka k výpůjčce"></AdminListItemName>
+                <AdminListItemName
+                  name="Výpůjčka #1234"
+                  note="Toto je nějaká poznámka k výpůjčce"
+                ></AdminListItemName>
                 <AdminListItemUser name="Tomáš Kazda"></AdminListItemUser>
-                <AdminListItemDate from="21.6 2021" to="30.7 2021" stateType="ongoing" state="Probíhá"></AdminListItemDate>
+                <AdminListItemDate
+                  from="21.6 2021"
+                  to="30.7 2021"
+                  stateType="ongoing"
+                  state="Probíhá"
+                ></AdminListItemDate>
               </AdminListItem>
               <AdminListItem>
-                <AdminListItemName name="Výpůjčka #1234" note="Toto je nějaká poznámka k výpůjčce"></AdminListItemName>
+                <AdminListItemName
+                  name="Výpůjčka #1234"
+                  note="Toto je nějaká poznámka k výpůjčce"
+                ></AdminListItemName>
                 <AdminListItemUser name="Tomáš Kazda"></AdminListItemUser>
-                <AdminListItemDate from="21.6 2021" to="30.7 2021" stateType="ongoing" state="Probíhá"></AdminListItemDate>
+                <AdminListItemDate
+                  from="21.6 2021"
+                  to="30.7 2021"
+                  stateType="ongoing"
+                  state="Probíhá"
+                ></AdminListItemDate>
               </AdminListItem>
               <AdminListItem>
-                <AdminListItemName name="Výpůjčka #1234" note="Toto je nějaká poznámka k výpůjčce"></AdminListItemName>
+                <AdminListItemName
+                  name="Výpůjčka #1234"
+                  note="Toto je nějaká poznámka k výpůjčce"
+                ></AdminListItemName>
                 <AdminListItemUser name="Tomáš Kazda"></AdminListItemUser>
-                <AdminListItemDate from="21.6 2021" to="30.7 2021" stateType="ongoing" state="Probíhá"></AdminListItemDate>
+                <AdminListItemDate
+                  from="21.6 2021"
+                  to="30.7 2021"
+                  stateType="ongoing"
+                  state="Probíhá"
+                ></AdminListItemDate>
               </AdminListItem>
               <AdminListItem>
-                <AdminListItemName name="Výpůjčka #1234" note="Toto je nějaká poznámka k výpůjčce"></AdminListItemName>
+                <AdminListItemName
+                  name="Výpůjčka #1234"
+                  note="Toto je nějaká poznámka k výpůjčce"
+                ></AdminListItemName>
                 <AdminListItemUser name="Michal Stehlík"></AdminListItemUser>
-                <AdminListItemDate from="21.6 2021" to="30.7 2021" stateType="failed" state="Nevráceno"></AdminListItemDate>
+                <AdminListItemDate
+                  from="21.6 2021"
+                  to="30.7 2021"
+                  stateType="failed"
+                  state="Nevráceno"
+                ></AdminListItemDate>
               </AdminListItem>
               <AdminListItem>
-                <AdminListItemName name="Výpůjčka #1234" note="Toto je nějaká poznámka k výpůjčce"></AdminListItemName>
+                <AdminListItemName
+                  name="Výpůjčka #1234"
+                  note="Toto je nějaká poznámka k výpůjčce"
+                ></AdminListItemName>
                 <AdminListItemUser name="Michal Stehlík"></AdminListItemUser>
-                <AdminListItemDate from="21.6 2021" to="30.7 2021" stateType="failed" state="Nevráceno"></AdminListItemDate>
+                <AdminListItemDate
+                  from="21.6 2021"
+                  to="30.7 2021"
+                  stateType="failed"
+                  state="Nevráceno"
+                ></AdminListItemDate>
               </AdminListItem>
               <AdminListItem>
-                <AdminListItemName name="Výpůjčka #1234" note="Toto je nějaká poznámka k výpůjčce"></AdminListItemName>
+                <AdminListItemName
+                  name="Výpůjčka #1234"
+                  note="Toto je nějaká poznámka k výpůjčce"
+                ></AdminListItemName>
                 <AdminListItemUser name="Michal Stehlík"></AdminListItemUser>
-                <AdminListItemDate from="21.6 2021" to="30.7 2021" stateType="failed" state="Nevráceno"></AdminListItemDate>
+                <AdminListItemDate
+                  from="21.6 2021"
+                  to="30.7 2021"
+                  stateType="failed"
+                  state="Nevráceno"
+                ></AdminListItemDate>
               </AdminListItem>
               <AdminListItem>
-                <AdminListItemName name="Výpůjčka #1234" note="Toto je nějaká poznámka k výpůjčce"></AdminListItemName>
+                <AdminListItemName
+                  name="Výpůjčka #1234"
+                  note="Toto je nějaká poznámka k výpůjčce"
+                ></AdminListItemName>
                 <AdminListItemUser name="Michal Stehlík"></AdminListItemUser>
-                <AdminListItemDate from="21.6 2021" to="30.7 2021" stateType="failed" state="Nevráceno"></AdminListItemDate>
+                <AdminListItemDate
+                  from="21.6 2021"
+                  to="30.7 2021"
+                  stateType="failed"
+                  state="Nevráceno"
+                ></AdminListItemDate>
               </AdminListItem>
               <AdminListItem>
-                <AdminListItemName name="Výpůjčka #1234" note="Toto je nějaká poznámka k výpůjčce"></AdminListItemName>
+                <AdminListItemName
+                  name="Výpůjčka #1234"
+                  note="Toto je nějaká poznámka k výpůjčce"
+                ></AdminListItemName>
                 <AdminListItemUser name="Michal Stehlík"></AdminListItemUser>
-                <AdminListItemDate from="21.6 2021" to="30.7 2021" stateType="failed" state="Nevráceno"></AdminListItemDate>
+                <AdminListItemDate
+                  from="21.6 2021"
+                  to="30.7 2021"
+                  stateType="failed"
+                  state="Nevráceno"
+                ></AdminListItemDate>
               </AdminListItem>
               <AdminListItem>
-                <AdminListItemName name="Výpůjčka #1234" note="Toto je nějaká poznámka k výpůjčce"></AdminListItemName>
+                <AdminListItemName
+                  name="Výpůjčka #1234"
+                  note="Toto je nějaká poznámka k výpůjčce"
+                ></AdminListItemName>
                 <AdminListItemUser name="Michal Stehlík"></AdminListItemUser>
-                <AdminListItemDate from="21.6 2021" to="30.7 2021" stateType="failed" state="Nevráceno"></AdminListItemDate>
+                <AdminListItemDate
+                  from="21.6 2021"
+                  to="30.7 2021"
+                  stateType="failed"
+                  state="Nevráceno"
+                ></AdminListItemDate>
               </AdminListItem>
             </AdminList>
           </StyledMainGrid>
@@ -365,64 +467,160 @@ const Content = (props) => {
             <ContentMenu isView isFiltered isUnfiltered></ContentMenu>
             <AdminList isSmall>
               <AdminListItem>
-                <AdminListItemName name="Výpůjčka #1234" note="Toto je nějaká poznámka k výpůjčce"></AdminListItemName>
+                <AdminListItemName
+                  name="Výpůjčka #1234"
+                  note="Toto je nějaká poznámka k výpůjčce"
+                ></AdminListItemName>
                 <AdminListItemUser name="Dědic Petr"></AdminListItemUser>
-                <AdminListItemDate from="21.6 2021" to="30.7 2021" stateType="soon" state="Proběhne"></AdminListItemDate>
+                <AdminListItemDate
+                  from="21.6 2021"
+                  to="30.7 2021"
+                  stateType="soon"
+                  state="Proběhne"
+                ></AdminListItemDate>
               </AdminListItem>
               <AdminListItem>
-                <AdminListItemName name="Výpůjčka #1234" note="Toto je nějaká poznámka k výpůjčce"></AdminListItemName>
+                <AdminListItemName
+                  name="Výpůjčka #1234"
+                  note="Toto je nějaká poznámka k výpůjčce"
+                ></AdminListItemName>
                 <AdminListItemUser name="Dědic Petr"></AdminListItemUser>
-                <AdminListItemDate from="21.6 2021" to="30.7 2021" stateType="returned" state="Vráceno"></AdminListItemDate>
+                <AdminListItemDate
+                  from="21.6 2021"
+                  to="30.7 2021"
+                  stateType="returned"
+                  state="Vráceno"
+                ></AdminListItemDate>
               </AdminListItem>
               <AdminListItem>
-                <AdminListItemName name="Výpůjčka #1234" note="Toto je nějaká poznámka k výpůjčce"></AdminListItemName>
+                <AdminListItemName
+                  name="Výpůjčka #1234"
+                  note="Toto je nějaká poznámka k výpůjčce"
+                ></AdminListItemName>
                 <AdminListItemUser name="Dědic Petr"></AdminListItemUser>
-                <AdminListItemDate from="21.6 2021" to="30.7 2021" stateType="returned" state="Vráceno"></AdminListItemDate>
+                <AdminListItemDate
+                  from="21.6 2021"
+                  to="30.7 2021"
+                  stateType="returned"
+                  state="Vráceno"
+                ></AdminListItemDate>
               </AdminListItem>
               <AdminListItem>
-                <AdminListItemName name="Výpůjčka #1234" note="Toto je nějaká poznámka k výpůjčce"></AdminListItemName>
+                <AdminListItemName
+                  name="Výpůjčka #1234"
+                  note="Toto je nějaká poznámka k výpůjčce"
+                ></AdminListItemName>
                 <AdminListItemUser name="Tomáš Kazda"></AdminListItemUser>
-                <AdminListItemDate from="21.6 2021" to="30.7 2021" stateType="ongoing" state="Probíhá"></AdminListItemDate>
+                <AdminListItemDate
+                  from="21.6 2021"
+                  to="30.7 2021"
+                  stateType="ongoing"
+                  state="Probíhá"
+                ></AdminListItemDate>
               </AdminListItem>
               <AdminListItem>
-                <AdminListItemName name="Výpůjčka #1234" note="Toto je nějaká poznámka k výpůjčce"></AdminListItemName>
+                <AdminListItemName
+                  name="Výpůjčka #1234"
+                  note="Toto je nějaká poznámka k výpůjčce"
+                ></AdminListItemName>
                 <AdminListItemUser name="Tomáš Kazda"></AdminListItemUser>
-                <AdminListItemDate from="21.6 2021" to="30.7 2021" stateType="ongoing" state="Probíhá"></AdminListItemDate>
+                <AdminListItemDate
+                  from="21.6 2021"
+                  to="30.7 2021"
+                  stateType="ongoing"
+                  state="Probíhá"
+                ></AdminListItemDate>
               </AdminListItem>
               <AdminListItem>
-                <AdminListItemName name="Výpůjčka #1234" note="Toto je nějaká poznámka k výpůjčce"></AdminListItemName>
+                <AdminListItemName
+                  name="Výpůjčka #1234"
+                  note="Toto je nějaká poznámka k výpůjčce"
+                ></AdminListItemName>
                 <AdminListItemUser name="Tomáš Kazda"></AdminListItemUser>
-                <AdminListItemDate from="21.6 2021" to="30.7 2021" stateType="ongoing" state="Probíhá"></AdminListItemDate>
+                <AdminListItemDate
+                  from="21.6 2021"
+                  to="30.7 2021"
+                  stateType="ongoing"
+                  state="Probíhá"
+                ></AdminListItemDate>
               </AdminListItem>
               <AdminListItem>
-                <AdminListItemName name="Výpůjčka #1234" note="Toto je nějaká poznámka k výpůjčce"></AdminListItemName>
+                <AdminListItemName
+                  name="Výpůjčka #1234"
+                  note="Toto je nějaká poznámka k výpůjčce"
+                ></AdminListItemName>
                 <AdminListItemUser name="Michal Stehlík"></AdminListItemUser>
-                <AdminListItemDate from="21.6 2021" to="30.7 2021" stateType="failed" state="Nevráceno"></AdminListItemDate>
+                <AdminListItemDate
+                  from="21.6 2021"
+                  to="30.7 2021"
+                  stateType="failed"
+                  state="Nevráceno"
+                ></AdminListItemDate>
               </AdminListItem>
               <AdminListItem>
-                <AdminListItemName name="Výpůjčka #1234" note="Toto je nějaká poznámka k výpůjčce"></AdminListItemName>
+                <AdminListItemName
+                  name="Výpůjčka #1234"
+                  note="Toto je nějaká poznámka k výpůjčce"
+                ></AdminListItemName>
                 <AdminListItemUser name="Michal Stehlík"></AdminListItemUser>
-                <AdminListItemDate from="21.6 2021" to="30.7 2021" stateType="failed" state="Nevráceno"></AdminListItemDate>
+                <AdminListItemDate
+                  from="21.6 2021"
+                  to="30.7 2021"
+                  stateType="failed"
+                  state="Nevráceno"
+                ></AdminListItemDate>
               </AdminListItem>
               <AdminListItem>
-                <AdminListItemName name="Výpůjčka #1234" note="Toto je nějaká poznámka k výpůjčce"></AdminListItemName>
+                <AdminListItemName
+                  name="Výpůjčka #1234"
+                  note="Toto je nějaká poznámka k výpůjčce"
+                ></AdminListItemName>
                 <AdminListItemUser name="Michal Stehlík"></AdminListItemUser>
-                <AdminListItemDate from="21.6 2021" to="30.7 2021" stateType="failed" state="Nevráceno"></AdminListItemDate>
+                <AdminListItemDate
+                  from="21.6 2021"
+                  to="30.7 2021"
+                  stateType="failed"
+                  state="Nevráceno"
+                ></AdminListItemDate>
               </AdminListItem>
               <AdminListItem>
-                <AdminListItemName name="Výpůjčka #1234" note="Toto je nějaká poznámka k výpůjčce"></AdminListItemName>
+                <AdminListItemName
+                  name="Výpůjčka #1234"
+                  note="Toto je nějaká poznámka k výpůjčce"
+                ></AdminListItemName>
                 <AdminListItemUser name="Michal Stehlík"></AdminListItemUser>
-                <AdminListItemDate from="21.6 2021" to="30.7 2021" stateType="failed" state="Nevráceno"></AdminListItemDate>
+                <AdminListItemDate
+                  from="21.6 2021"
+                  to="30.7 2021"
+                  stateType="failed"
+                  state="Nevráceno"
+                ></AdminListItemDate>
               </AdminListItem>
               <AdminListItem>
-                <AdminListItemName name="Výpůjčka #1234" note="Toto je nějaká poznámka k výpůjčce"></AdminListItemName>
+                <AdminListItemName
+                  name="Výpůjčka #1234"
+                  note="Toto je nějaká poznámka k výpůjčce"
+                ></AdminListItemName>
                 <AdminListItemUser name="Michal Stehlík"></AdminListItemUser>
-                <AdminListItemDate from="21.6 2021" to="30.7 2021" stateType="failed" state="Nevráceno"></AdminListItemDate>
+                <AdminListItemDate
+                  from="21.6 2021"
+                  to="30.7 2021"
+                  stateType="failed"
+                  state="Nevráceno"
+                ></AdminListItemDate>
               </AdminListItem>
               <AdminListItem>
-                <AdminListItemName name="Výpůjčka #1234" note="Toto je nějaká poznámka k výpůjčce"></AdminListItemName>
+                <AdminListItemName
+                  name="Výpůjčka #1234"
+                  note="Toto je nějaká poznámka k výpůjčce"
+                ></AdminListItemName>
                 <AdminListItemUser name="Michal Stehlík"></AdminListItemUser>
-                <AdminListItemDate from="21.6 2021" to="30.7 2021" stateType="failed" state="Nevráceno"></AdminListItemDate>
+                <AdminListItemDate
+                  from="21.6 2021"
+                  to="30.7 2021"
+                  stateType="failed"
+                  state="Nevráceno"
+                ></AdminListItemDate>
               </AdminListItem>
             </AdminList>
           </StyledMainGrid>
@@ -433,66 +631,162 @@ const Content = (props) => {
             <ContentMenu isView isFiltered isUnfiltered></ContentMenu>
             <AdminList isSmall>
               <AdminListItem>
-                <AdminListItemName name="Výpůjčka #1234" note="Toto je nějaká poznámka k výpůjčce"></AdminListItemName>
+                <AdminListItemName
+                  name="Výpůjčka #1234"
+                  note="Toto je nějaká poznámka k výpůjčce"
+                ></AdminListItemName>
                 <AdminListItemUser name="Dědic Petr"></AdminListItemUser>
-                <AdminListItemDate from="21.6 2021" to="30.7 2021" stateType="soon" state="Proběhne"></AdminListItemDate>
+                <AdminListItemDate
+                  from="21.6 2021"
+                  to="30.7 2021"
+                  stateType="soon"
+                  state="Proběhne"
+                ></AdminListItemDate>
               </AdminListItem>
               <AdminListItem>
-                <AdminListItemName name="Výpůjčka #1234" note="Toto je nějaká poznámka k výpůjčce"></AdminListItemName>
+                <AdminListItemName
+                  name="Výpůjčka #1234"
+                  note="Toto je nějaká poznámka k výpůjčce"
+                ></AdminListItemName>
                 <AdminListItemUser name="Dědic Petr"></AdminListItemUser>
-                <AdminListItemDate from="21.6 2021" to="30.7 2021" stateType="returned" state="Vráceno"></AdminListItemDate>
+                <AdminListItemDate
+                  from="21.6 2021"
+                  to="30.7 2021"
+                  stateType="returned"
+                  state="Vráceno"
+                ></AdminListItemDate>
               </AdminListItem>
               <AdminListItem>
-                <AdminListItemName name="Výpůjčka #1234" note="Toto je nějaká poznámka k výpůjčce"></AdminListItemName>
+                <AdminListItemName
+                  name="Výpůjčka #1234"
+                  note="Toto je nějaká poznámka k výpůjčce"
+                ></AdminListItemName>
                 <AdminListItemUser name="Dědic Petr"></AdminListItemUser>
-                <AdminListItemDate from="21.6 2021" to="30.7 2021" stateType="returned" state="Vráceno"></AdminListItemDate>
+                <AdminListItemDate
+                  from="21.6 2021"
+                  to="30.7 2021"
+                  stateType="returned"
+                  state="Vráceno"
+                ></AdminListItemDate>
               </AdminListItem>
               <AdminListItem>
-                <AdminListItemName name="Výpůjčka #1234" note="Toto je nějaká poznámka k výpůjčce"></AdminListItemName>
+                <AdminListItemName
+                  name="Výpůjčka #1234"
+                  note="Toto je nějaká poznámka k výpůjčce"
+                ></AdminListItemName>
                 <AdminListItemUser name="Tomáš Kazda"></AdminListItemUser>
-                <AdminListItemDate from="21.6 2021" to="30.7 2021" stateType="ongoing" state="Probíhá"></AdminListItemDate>
+                <AdminListItemDate
+                  from="21.6 2021"
+                  to="30.7 2021"
+                  stateType="ongoing"
+                  state="Probíhá"
+                ></AdminListItemDate>
               </AdminListItem>
               <AdminListItem>
-                <AdminListItemName name="Výpůjčka #1234" note="Toto je nějaká poznámka k výpůjčce"></AdminListItemName>
+                <AdminListItemName
+                  name="Výpůjčka #1234"
+                  note="Toto je nějaká poznámka k výpůjčce"
+                ></AdminListItemName>
                 <AdminListItemUser name="Tomáš Kazda"></AdminListItemUser>
-                <AdminListItemDate from="21.6 2021" to="30.7 2021" stateType="ongoing" state="Probíhá"></AdminListItemDate>
+                <AdminListItemDate
+                  from="21.6 2021"
+                  to="30.7 2021"
+                  stateType="ongoing"
+                  state="Probíhá"
+                ></AdminListItemDate>
               </AdminListItem>
               <AdminListItem>
-                <AdminListItemName name="Výpůjčka #1234" note="Toto je nějaká poznámka k výpůjčce"></AdminListItemName>
+                <AdminListItemName
+                  name="Výpůjčka #1234"
+                  note="Toto je nějaká poznámka k výpůjčce"
+                ></AdminListItemName>
                 <AdminListItemUser name="Tomáš Kazda"></AdminListItemUser>
-                <AdminListItemDate from="21.6 2021" to="30.7 2021" stateType="ongoing" state="Probíhá"></AdminListItemDate>
+                <AdminListItemDate
+                  from="21.6 2021"
+                  to="30.7 2021"
+                  stateType="ongoing"
+                  state="Probíhá"
+                ></AdminListItemDate>
               </AdminListItem>
               <AdminListItem>
-                <AdminListItemName name="Výpůjčka #1234" note="Toto je nějaká poznámka k výpůjčce"></AdminListItemName>
+                <AdminListItemName
+                  name="Výpůjčka #1234"
+                  note="Toto je nějaká poznámka k výpůjčce"
+                ></AdminListItemName>
                 <AdminListItemUser name="Michal Stehlík"></AdminListItemUser>
-                <AdminListItemDate from="21.6 2021" to="30.7 2021" stateType="failed" state="Nevráceno"></AdminListItemDate>
+                <AdminListItemDate
+                  from="21.6 2021"
+                  to="30.7 2021"
+                  stateType="failed"
+                  state="Nevráceno"
+                ></AdminListItemDate>
               </AdminListItem>
               <AdminListItem>
-                <AdminListItemName name="Výpůjčka #1234" note="Toto je nějaká poznámka k výpůjčce"></AdminListItemName>
+                <AdminListItemName
+                  name="Výpůjčka #1234"
+                  note="Toto je nějaká poznámka k výpůjčce"
+                ></AdminListItemName>
                 <AdminListItemUser name="Michal Stehlík"></AdminListItemUser>
-                <AdminListItemDate from="21.6 2021" to="30.7 2021" stateType="failed" state="Nevráceno"></AdminListItemDate>
+                <AdminListItemDate
+                  from="21.6 2021"
+                  to="30.7 2021"
+                  stateType="failed"
+                  state="Nevráceno"
+                ></AdminListItemDate>
               </AdminListItem>
               <AdminListItem>
-                <AdminListItemName name="Výpůjčka #1234" note="Toto je nějaká poznámka k výpůjčce"></AdminListItemName>
+                <AdminListItemName
+                  name="Výpůjčka #1234"
+                  note="Toto je nějaká poznámka k výpůjčce"
+                ></AdminListItemName>
                 <AdminListItemUser name="Michal Stehlík"></AdminListItemUser>
-                <AdminListItemDate from="21.6 2021" to="30.7 2021" stateType="failed" state="Nevráceno"></AdminListItemDate>
+                <AdminListItemDate
+                  from="21.6 2021"
+                  to="30.7 2021"
+                  stateType="failed"
+                  state="Nevráceno"
+                ></AdminListItemDate>
               </AdminListItem>
               <AdminListItem>
-                <AdminListItemName name="Výpůjčka #1234" note="Toto je nějaká poznámka k výpůjčce"></AdminListItemName>
+                <AdminListItemName
+                  name="Výpůjčka #1234"
+                  note="Toto je nějaká poznámka k výpůjčce"
+                ></AdminListItemName>
                 <AdminListItemUser name="Michal Stehlík"></AdminListItemUser>
-                <AdminListItemDate from="21.6 2021" to="30.7 2021" stateType="failed" state="Nevráceno"></AdminListItemDate>
+                <AdminListItemDate
+                  from="21.6 2021"
+                  to="30.7 2021"
+                  stateType="failed"
+                  state="Nevráceno"
+                ></AdminListItemDate>
               </AdminListItem>
               <AdminListItem>
-                <AdminListItemName name="Výpůjčka #1234" note="Toto je nějaká poznámka k výpůjčce"></AdminListItemName>
+                <AdminListItemName
+                  name="Výpůjčka #1234"
+                  note="Toto je nějaká poznámka k výpůjčce"
+                ></AdminListItemName>
                 <AdminListItemUser name="Michal Stehlík"></AdminListItemUser>
-                <AdminListItemDate from="21.6 2021" to="30.7 2021" stateType="failed" state="Nevráceno"></AdminListItemDate>
+                <AdminListItemDate
+                  from="21.6 2021"
+                  to="30.7 2021"
+                  stateType="failed"
+                  state="Nevráceno"
+                ></AdminListItemDate>
               </AdminListItem>
-              
+
               <ToolTip toolTipText="Nevráceno, fakt hrůza">
                 <AdminListItem>
-                  <AdminListItemName name="Výpůjčka #1234" note="Toto je nějaká poznámka k výpůjčce"></AdminListItemName>
+                  <AdminListItemName
+                    name="Výpůjčka #1234"
+                    note="Toto je nějaká poznámka k výpůjčce"
+                  ></AdminListItemName>
                   <AdminListItemUser name="Michal Stehlík"></AdminListItemUser>
-                  <AdminListItemDate from="21.6 2021" to="30.7 2021" stateType="failed" state="Nevráceno"></AdminListItemDate>
+                  <AdminListItemDate
+                    from="21.6 2021"
+                    to="30.7 2021"
+                    stateType="failed"
+                    state="Nevráceno"
+                  ></AdminListItemDate>
                 </AdminListItem>
               </ToolTip>
             </AdminList>

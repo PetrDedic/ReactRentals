@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useState } from "react";
 
 const StyledCategory = styled.div`
   display: ${(props) => (props.isUnfiltered ? "none" : "unset")};
@@ -24,28 +25,62 @@ const StyledCategory = styled.div`
     padding: 1rem;
     margin-left: 0;
   }
+
+  user-select: none;
+
+  .details {
+    transition: 250ms;
+
+    ul {
+      max-height: 0;
+      transition: 150ms;
+      height: auto;
+    }
+
+    li {
+      max-height: 0;
+      transition: 150ms;
+      height: auto;
+      transform: scaleY(0);
+    }
+  }
+
+  &.true .details {
+    max-height: 25rem;
+    transition: 200ms ease-in-out;
+
+    ul {
+      max-height: 20rem;
+      transition: 200ms ease-in-out;
+    }
+
+    li {
+      max-height: 3rem;
+      transition: 400ms ease-in-out;
+      transform: scaleY(100%);
+    }
+  }
 `;
 
-const StyledDetails = styled.details`
+const StyledDetails = styled.div`
   transition: 250ms;
+  height: auto;
+  max-height: 0;
+  transition: 500ms;
 
-  @keyframes fadeInDown {
-    0% {
-      opacity: 0;
-      transform: translateY(-1.25em);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
+  &.opened {
+    height: auto;
+    max-height: 25rem;
+    transition: 500ms ease-in-out;
+
+    ul,
+    li {
+      height: unset;
+      transition: 250ms;
     }
   }
 
-  &[open] {
-    animation-name: fadeInDown;
-    animation-duration: 0.5s;
-  }
-
-  summary {
+  div {
     text-align: center;
   }
 
@@ -53,22 +88,25 @@ const StyledDetails = styled.details`
   li {
     list-style-type: none;
     transition: 250ms;
-    padding: 0.25rem 0.5rem;
+    padding: 0.25rem 0.25rem;
 
     @media (max-width: 700px) {
       padding: 0.25rem 0;
     }
+
+    height: 0;
+    transition: 150ms;
   }
 
   li {
     border-radius: 2.5rem;
-    padding: 0.25rem 0.5rem;
+    padding: 0.25rem 0.25rem;
     margin: 0.5rem 0;
     transition: 250ms;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 80%;
+    width: 85%;
 
     @media (max-width: 700px) {
       padding: 0.25rem 0;
@@ -90,12 +128,23 @@ const StyledDetails = styled.details`
 `;
 
 const CategoryButton = (props) => {
+  const [open, setOpen] = useState(false);
+
+  const changeOpen = () => {
+    setOpen(!open);
+  };
+
   if (props.isView) {
     return (
-      <StyledCategory isUnfiltered={props.isUnfiltered}>
-        <StyledDetails>
-          <summary>Filtrovat</summary>
-          <ul>
+      <StyledCategory
+        isUnfiltered={props.isUnfiltered}
+        open={open}
+        onClick={changeOpen}
+        className={open}
+      >
+        <StyledDetails className="details">
+          <div>Filtrovat</div>
+          <ul className="details">
             <li>
               <span>●</span>Vše
             </li>
@@ -114,10 +163,10 @@ const CategoryButton = (props) => {
     );
   } else {
     return (
-      <StyledCategory>
-        <StyledDetails>
-          <summary>Filtrovat</summary>
-          <ul>
+      <StyledCategory open={open} onClick={changeOpen} className={open}>
+        <StyledDetails className="details">
+          <div>Filtrovat</div>
+          <ul className="details">
             <li>
               <span>●</span>Vše
             </li>

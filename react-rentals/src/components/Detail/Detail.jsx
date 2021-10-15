@@ -84,6 +84,8 @@ const ActionButton = styled.div`
   min-width: 11em;
   margin-right: auto;
   margin-top: 1em;
+  -webkit-box-shadow: 0 8px 20px 0px #8d8d8d;
+  box-shadow: 0 8px 20px 0px #8d8d8d;
 
   &:hover {
     background-color: #198490;

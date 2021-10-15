@@ -37,18 +37,28 @@ const StyledAccountCardWrapper = styled.div`
 `;
 
 const StyledAccountCardDetail = styled.div`
-  height: 0;
+  max-height: 0;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  transition: 250ms;
+  height: auto;
+
+  div {
+    height: 0;
+    transition: 150ms;
+  }
 
   &.visible {
+    max-height: 50rem;
     height: auto;
     padding-bottom: 2rem;
+    transition: 750ms;
 
     div {
       box-shadow: none;
       height: 8rem;
+      transition: 500ms;
 
       @media (max-width: 700px) {
         height: 6rem;

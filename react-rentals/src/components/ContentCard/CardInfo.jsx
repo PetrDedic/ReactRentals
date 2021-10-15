@@ -14,13 +14,13 @@ const StyledCardInfo = styled.span`
 `;
 
 const CardInfo = (props) => {
-    return (
-      <StyledCardInfo>
-          <ToolTip toolTipText={props.text}>
-            <i className="fas fa-exclamation"></i>
-          </ToolTip>
-      </StyledCardInfo>
-    );
+  return (
+    <StyledCardInfo>
+      <ToolTip toolTipText={props.text}>
+        <i className="fas fa-exclamation"></i>
+      </ToolTip>
+    </StyledCardInfo>
+  );
 };
 
 export default CardInfo;

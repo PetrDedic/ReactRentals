@@ -9,6 +9,8 @@ const StyledButton = styled.div`
   cursor: pointer;
   transition: 250ms;
   margin: 1rem auto;
+  -webkit-box-shadow: 0 8px 20px 0px #8d8d8d;
+  box-shadow: 0 8px 20px 0px #8d8d8d;
 
   p {
     text-align: center;

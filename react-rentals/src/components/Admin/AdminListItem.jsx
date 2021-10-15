@@ -11,14 +11,14 @@ const StyledAdminListItem = styled.div`
   display: flex;
   justify-content: space-between;
 
-  @media(max-width: 700px) {
+  @media (max-width: 700px) {
     flex-direction: column;
   }
 `;
 
 const AdminListItem = (props) => {
   return (
-    <StyledAdminListItem>
+    <StyledAdminListItem className="item-list">
       {props.children}
     </StyledAdminListItem>
   );

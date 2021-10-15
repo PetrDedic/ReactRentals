@@ -1,41 +1,45 @@
 import styled from "styled-components";
-import MicrosoftLogin from "react-microsoft-login";
-import { useState } from "react";
+import { useAppContext } from "../../providers/ApplicationProvider";
 
 const StyledSignButton = styled.div`
-    text-align: center;
-    display: grid;
-    justify-items: center;
-    align-items: center;
+  text-align: center;
+  display: grid;
+  justify-items: center;
+  align-items: center;
 
-    svg {
-        margin-right: 1rem;
-    }
+  svg {
+    margin-right: 1rem;
+  }
 `;
 
 const SignButton = (props) => {
+  const [{ userManager, accessToken }] = useAppContext();
 
-    const [msalInstance, onMsalInstanceChange] = useState();
-
-  const loginHandler = (err, data, msal) => {
-    console.log(err, data);
-    // some actions
-    if (!err && data) {
-      onMsalInstanceChange(msal);
-    }
-  };
-
-  const logoutHandler = () => {
-    msalInstance.logout();
-  };
-
-    return msalInstance ? (
-    <button onClick={logoutHandler}>Logout</button>
-  ) : (
-      <StyledSignButton>
-        <MicrosoftLogin clientId={"f8c7976f-3e93-482d-88a3-62a1133cbbc3"} authCallback={loginHandler} buttonTheme="dark" />
-      </StyledSignButton>
+  return (
+    <StyledSignButton>
+      {accessToken ? (
+        <button
+          color="primary"
+          size="lg"
+          onClick={() => {
+            userManager.signoutRedirect();
+          }}
+        >
+          Odhlásit
+        </button>
+      ) : (
+        <button
+          color="primary"
+          size="lg"
+          onClick={() => {
+            userManager.signinRedirect();
+          }}
+        >
+          Přihlásit
+        </button>
+      )}
+    </StyledSignButton>
   );
-  };
-  
-  export default SignButton;
+};
+
+export default SignButton;

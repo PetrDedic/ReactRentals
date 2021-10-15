@@ -50,6 +50,7 @@ const AccountCardButton = (props) => {
     setActive(!isActive);
 
     document.getElementById("detail-" + props.id).classList.toggle("visible");
+    document.getElementById("detail-" + props.id).focus();
   };
 
   if (props.isAdmin) {
